@@ -1,0 +1,13 @@
+logs
+*.log
+npm-debug.log*
+
+node_modules
+build
+storybook-static
+*.local
+.env*
+
+.vscode/*
+!.vscode/extensions.json
+.idea
