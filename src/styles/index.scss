@@ -1,0 +1,17 @@
+@use 'reset';
+@use 'colors/palette';
+@use 'colors/text';
+@use 'colors/background';
+@use 'colors/line';
+@use 'colors/control';
+@use 'typography';
+@use 'border-radius';
+@use 'spacing';
+
+body {
+  font-family: var(--yd-font-family);
+  font-size: var(--yd-body-1-font-size);
+  font-weight: var(--yd-body-font-weight);
+  line-height: var(--yd-body-1-line-height);
+  color: var(--yd-color-text-primary);
+}

@@ -1,0 +1,18 @@
+:root {
+  --yd-color-text-primary: var(--yd-color-blue-900);
+  --yd-color-text-primary-inverted: var(--yd-color-white);
+  --yd-color-text-secondary: rgb(var(--yd-color-blue-900-rgb), 0.68);
+
+  --yd-color-text-brand: var(--yd-color-cyan-500);
+  --yd-color-text-brand-hover: var(--yd-color-cyan-400);
+  --yd-color-text-brand-contrast: var(--yd-color-white);
+
+  --yd-color-text-success: var(--yd-color-green-500);
+  --yd-color-text-success-hover: var(--yd-color-green-300);
+
+  --yd-color-text-warning: var(--yd-color-orange-500);
+  --yd-color-text-warning-hover: var(--yd-color-orange-300);
+
+  --yd-color-text-danger: var(--yd-color-red-500);
+  --yd-color-text-danger-hover: var(--yd-color-red-300);
+}

@@ -1,0 +1,25 @@
+:root {
+  --yd-color-bg-primary: var(--yd-color-white);
+  --yd-color-bg-secondary: var(--yd-color-gray-50);
+  --yd-color-bg-heavy: var(--yd-color-blue-950);
+
+  --yd-color-bg-brand: var(--yd-color-cyan-500);
+  --yd-color-bg-brand-hover: var(--yd-color-cyan-700);
+  --yd-color-bg-brand-light: rgb(var(--yd-color-cyan-500-rgb), 0.06);
+  --yd-color-bg-brand-light-hover: rgb(var(--yd-color-cyan-500-rgb), 0.12);
+
+  --yd-color-bg-success: var(--yd-color-green-500);
+  --yd-color-bg-success-hover: var(--yd-color-green-700);
+  --yd-color-bg-success-light: rgb(var(--yd-color-green-500-rgb), 0.06);
+  --yd-color-bg-success-light-hover: rgb(var(--yd-color-green-500-rgb), 0.12);
+
+  --yd-color-bg-warning: var(--yd-color-orange-500);
+  --yd-color-bg-warning-hover: var(--yd-color-orange-700);
+  --yd-color-bg-warning-light: rgb(var(--yd-color-orange-500-rgb), 0.06);
+  --yd-color-bg-warning-light-hover: rgb(var(--yd-color-orange-500-rgb), 0.12);
+
+  --yd-color-bg-danger: var(--yd-color-red-500);
+  --yd-color-bg-danger-hover: var(--yd-color-red-700);
+  --yd-color-bg-danger-light: rgb(var(--yd-color-red-500-rgb), 0.06);
+  --yd-color-bg-danger-light-hover: rgb(var(--yd-color-red-500-rgb), 0.12);
+}
