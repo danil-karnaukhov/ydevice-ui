@@ -1,0 +1,76 @@
+@use '../variables';
+
+$block: '.#{variables.$ns}spinner';
+
+#{$block} {
+  display: inline-block;
+  width: var(--yd-spinner-size);
+  height: var(--yd-spinner-size);
+
+  &_color {
+    &_brand {
+      color: var(--yd-color-line-brand);
+    }
+
+    &_inherit {
+      color: inherit;
+    }
+  }
+
+  &_size {
+    &_xs {
+      --yd-spinner-size: 16px;
+      --yd-spinner-thickness: 4.5;
+    }
+
+    &_s {
+      --yd-spinner-size: 20px;
+      --yd-spinner-thickness: 4;
+    }
+
+    &_m {
+      --yd-spinner-size: 24px;
+      --yd-spinner-thickness: 4;
+    }
+
+    &_l {
+      --yd-spinner-size: 40px;
+      --yd-spinner-thickness: 3.5;
+    }
+
+    &_xl {
+      --yd-spinner-size: 60px;
+      --yd-spinner-thickness: 3;
+    }
+  }
+
+  &_centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+    animation: rotation 1s linear infinite;
+  }
+
+  circle {
+    r: calc((40 - var(--yd-spinner-thickness)) / 2);
+    stroke-width: var(--yd-spinner-thickness);
+    stroke-dasharray: 80px, 200px;
+    stroke-dashoffset: 0;
+  }
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
