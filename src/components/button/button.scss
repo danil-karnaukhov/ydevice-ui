@@ -6,6 +6,9 @@ $block: '.#{variables.$ns}button';
   --yd-button-border-radius: var(--yd-border-radius-m);
 
   position: relative;
+  display: inline-flex;
+  gap: var(--yd-spacing-2xs);
+  justify-content: center;
   height: var(--yd-button-height);
   padding: 0 var(--yd-button-padding);
   font-size: var(--yd-button-font-size);
@@ -233,33 +236,41 @@ $block: '.#{variables.$ns}button';
     width: 100%;
   }
 
-  &__content {
+  &__label,
+  &__startIcon,
+  &__endIcon {
     display: inline-flex;
-    gap: var(--yd-spacing-2xs);
     align-items: center;
     justify-content: center;
     height: 100%;
   }
 
-  &_loading &__content {
+  &:not(:has(&__label)) {
+    --yd-button-padding: 0;
+    --yd-button-icon-offset: 0;
+
+    &:not(#{$block}_fullWidth) {
+      width: var(--yd-button-height);
+    }
+  }
+
+  &_loading :is(&__label, &__startIcon, &__endIcon) {
     visibility: hidden;
   }
 
-  &__leftIcon,
-  &__rightIcon {
-    display: inline-flex;
-
+  &__startIcon,
+  &__endIcon {
     & > svg {
       width: var(--yd-button-icon-size);
       height: var(--yd-button-icon-size);
     }
   }
 
-  &__leftIcon {
+  &__startIcon {
     margin-left: var(--yd-button-icon-offset);
   }
 
-  &__rightIcon {
+  &__endIcon {
     margin-right: var(--yd-button-icon-offset);
   }
 }

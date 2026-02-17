@@ -18,8 +18,8 @@ export type ButtonProps = ComponentPropsWithRef<'button'> & {
   color?: ButtonColor
   cornersShape?: ButtonCornersShape
   size?: ButtonSize
-  leftIcon?: ReactNode
-  rightIcon?: ReactNode
+  startIcon?: ReactNode
+  endIcon?: ReactNode
   fullWidth?: boolean
   loading?: boolean
 }
@@ -39,8 +39,8 @@ export const Button = (props: ButtonProps) => {
     color = 'brand',
     cornersShape = 'round',
     size = 'm',
-    leftIcon,
-    rightIcon,
+    startIcon,
+    endIcon,
     fullWidth,
     loading,
     disabled,
@@ -63,13 +63,11 @@ export const Button = (props: ButtonProps) => {
 
   return (
     <button className={classes} disabled={disabled || loading} {...rest}>
-      <span className={b('content')}>
-        {leftIcon && <span className={b('leftIcon')}>{leftIcon}</span>}
+      {startIcon && <span className={b('startIcon')}>{startIcon}</span>}
 
-        {children}
+      {children && <span className={b('label')}>{children}</span>}
 
-        {rightIcon && <span className={b('rightIcon')}>{rightIcon}</span>}
-      </span>
+      {endIcon && <span className={b('endIcon')}>{endIcon}</span>}
 
       {loading && <Spinner color='inherit' size={spinnerSizes[size]} centered />}
     </button>

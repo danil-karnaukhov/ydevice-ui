@@ -14,12 +14,12 @@ const meta = {
   title: 'Button',
   component: Button,
   argTypes: {
-    leftIcon: {
+    startIcon: {
       control: { type: 'select' },
       options: Object.keys(icons),
       mapping: icons,
     },
-    rightIcon: {
+    endIcon: {
       control: { type: 'select' },
       options: Object.keys(icons),
       mapping: icons,
@@ -86,17 +86,17 @@ CornersShape.argTypes = {
 
 export const Icons: StoryFn<typeof Button> = (args) => (
   <div className='sb-row'>
-    <Button {...args} leftIcon={<PlusIcon />} />
-    <Button {...args} rightIcon={<ChevronDownIcon />} />
-    <Button {...args} leftIcon={<ChevronLeftIcon />} rightIcon={<ChevronRightIcon />} />
+    <Button {...args} startIcon={<PlusIcon />} />
+    <Button {...args} endIcon={<ChevronDownIcon />} />
+    <Button {...args} startIcon={<ChevronLeftIcon />} endIcon={<ChevronRightIcon />} />
   </div>
 )
 
 Icons.argTypes = {
-  leftIcon: {
+  startIcon: {
     table: { disable: true },
   },
-  rightIcon: {
+  endIcon: {
     table: { disable: true },
   },
 }
