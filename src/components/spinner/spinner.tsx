@@ -4,9 +4,13 @@ import { block } from '../../utils/bem'
 
 import './spinner.scss'
 
+export type SpinnerColor = 'brand' | 'inherit'
+
+export type SpinnerSize = 'xs' | 's' | 'm' | 'l' | 'xl'
+
 export type SpinnerProps = ComponentPropsWithRef<'span'> & {
-  color?: 'brand' | 'inherit'
-  size?: 'xs' | 's' | 'm' | 'l' | 'xl'
+  color?: SpinnerColor
+  size?: SpinnerSize
   centered?: boolean
 }
 

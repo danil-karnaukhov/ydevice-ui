@@ -3,7 +3,7 @@
 $block: '.#{variables.$ns}spinner';
 
 #{$block} {
-  display: inline-block;
+  display: inline-flex;
   width: var(--yd-spinner-size);
   height: var(--yd-spinner-size);
 
