@@ -1,0 +1,196 @@
+@use '../variables';
+
+$block: '.#{variables.$ns}input';
+
+#{$block} {
+  --yd-input-border-radius: var(--yd-border-radius-m);
+
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: var(--yd-input-height);
+  cursor: text;
+  background-color: var(--yd-input-color-bg);
+  border: 1px solid var(--yd-input-color-border);
+  transition: border-color 0.3s ease;
+
+  &:hover {
+    border-color: var(--yd-input-color-border-hover);
+  }
+
+  &:has(input:focus) {
+    border-color: var(--yd-input-color-border-focus);
+  }
+
+  &:has(input:disabled) {
+    cursor: not-allowed;
+    background-color: rgb(var(--yd-color-blue-900-rgb), 0.03);
+    border-color: var(--yd-input-color-border);
+  }
+
+  &_hasError {
+    &,
+    &:hover,
+    &:has(input:focus),
+    &:has(input:disabled) {
+      border-color: var(--yd-color-line-danger);
+    }
+  }
+
+  &_variant {
+    &_filled {
+      --yd-input-color-bg: var(--yd-color-bg-secondary);
+      --yd-input-color-border: transparent;
+      --yd-input-color-border-hover: var(--yd-color-gray-150);
+      --yd-input-color-border-focus: var(--yd-color-gray-200);
+    }
+
+    &_outlined {
+      --yd-input-color-bg: var(--yd-color-bg-primary);
+      --yd-input-color-border: var(--yd-color-gray-200);
+      --yd-input-color-border-hover: var(--yd-color-gray-500);
+      --yd-input-color-border-focus: var(--yd-color-line-brand);
+    }
+  }
+
+  &_cornersShape {
+    &_round {
+      border-radius: var(--yd-input-border-radius);
+    }
+
+    &_brick {
+      border-radius: 0;
+    }
+
+    &_roundBrick {
+      border-radius: var(--yd-input-border-radius) 0 0 var(--yd-input-border-radius);
+    }
+
+    &_brickRound {
+      border-radius: 0 var(--yd-input-border-radius) var(--yd-input-border-radius) 0;
+    }
+  }
+
+  &_size {
+    &_s {
+      --yd-input-height: 32px;
+      --yd-input-padding: var(--yd-spacing-xs);
+      --yd-input-font-size: 14px;
+      --yd-input-icon-size: 16px;
+    }
+
+    &_m {
+      --yd-input-height: 40px;
+      --yd-input-padding: var(--yd-spacing-s);
+      --yd-input-font-size: 14px;
+      --yd-input-icon-size: 20px;
+    }
+
+    &_l {
+      --yd-input-height: 48px;
+      --yd-input-padding: var(--yd-spacing-s);
+      --yd-input-font-size: 16px;
+      --yd-input-icon-size: 24px;
+    }
+  }
+
+  input {
+    flex-grow: 1;
+    height: 100%;
+    padding: 0 var(--yd-input-padding);
+    font-size: var(--yd-input-font-size);
+    color: var(--yd-color-text-primary);
+    cursor: inherit;
+    background-color: transparent;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:disabled {
+      color: var(--yd-color-control-text-disabled);
+    }
+
+    &::placeholder {
+      color: var(--yd-color-text-hint);
+    }
+
+    &[type='number']::-webkit-inner-spin-button,
+    &[type='number']::-webkit-outer-spin-button {
+      margin: 0;
+      appearance: none;
+    }
+  }
+
+  &__prefix,
+  &__suffix {
+    display: inline-flex;
+    color: var(--yd-color-text-secondary);
+
+    & > svg {
+      width: var(--yd-input-icon-size);
+      height: var(--yd-input-icon-size);
+      color: var(--yd-color-icon);
+    }
+  }
+
+  &__prefix {
+    margin-right: var(--yd-spacing-xs);
+  }
+
+  &__suffix {
+    margin-left: var(--yd-spacing-xs);
+  }
+
+  &__clearButton {
+    display: inline-flex;
+    visibility: hidden;
+    margin-left: var(--yd-spacing-2xs);
+    color: var(--yd-color-icon);
+    background-color: transparent;
+    opacity: 0;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: var(--yd-color-text-secondary);
+    }
+
+    &:focus-visible {
+      color: var(--yd-color-text-primary);
+      outline: none;
+    }
+
+    &:disabled {
+      color: var(--yd-color-control-text-disabled);
+      cursor: inherit;
+    }
+
+    svg {
+      width: var(--yd-input-icon-size);
+      height: var(--yd-input-icon-size);
+    }
+  }
+
+  &_hasValue &__clearButton {
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.3s ease;
+  }
+
+  &:has(&__prefix) {
+    padding-left: var(--yd-input-padding);
+
+    input {
+      padding-left: 0;
+    }
+  }
+
+  &:has(&__suffix),
+  &:has(&__clearButton) {
+    padding-right: var(--yd-input-padding);
+
+    input {
+      padding-right: 0;
+    }
+  }
+}
