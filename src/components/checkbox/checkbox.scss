@@ -1,0 +1,111 @@
+@use '../variables';
+
+$block: '.#{variables.$ns}checkbox';
+
+#{$block} {
+  display: inline-flex;
+  gap: var(--yd-spacing-xs);
+  align-items: center;
+  font-size: var(--yd-checkbox-font-size);
+  cursor: pointer;
+
+  &_size {
+    &_s {
+      --yd-checkbox-size: 16px;
+      --yd-checkbox-indeterminacy-marker-size: 6px;
+      --yd-checkbox-font-size: 13px;
+    }
+
+    &_m {
+      --yd-checkbox-size: 18px;
+      --yd-checkbox-indeterminacy-marker-size: 8px;
+      --yd-checkbox-font-size: 14px;
+    }
+
+    &_l {
+      --yd-checkbox-size: 20px;
+      --yd-checkbox-indeterminacy-marker-size: 10px;
+      --yd-checkbox-font-size: 16px;
+    }
+  }
+
+  &__indicator {
+    position: relative;
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: var(--yd-checkbox-size);
+    height: var(--yd-checkbox-size);
+    color: var(--yd-color-text-primary-inverted);
+    border: 1px solid var(--yd-color-gray-200);
+    border-radius: var(--yd-border-radius-s);
+    transition:
+      background-color 0.3s ease,
+      border-color 0.3s ease;
+
+    input {
+      position: absolute;
+      inset: -1px;
+      appearance: none;
+      cursor: inherit;
+      border-radius: inherit;
+      opacity: 0;
+    }
+
+    svg {
+      width: calc(var(--yd-checkbox-size) - 2px);
+      height: calc(var(--yd-checkbox-size) - 2px);
+    }
+  }
+
+  &:hover &__indicator {
+    border-color: var(--yd-color-line-brand);
+  }
+
+  &:has(input:checked) &__indicator {
+    background-color: var(--yd-color-bg-brand);
+    border-color: var(--yd-color-bg-brand);
+  }
+
+  &:has(input:checked):hover &__indicator {
+    background-color: var(--yd-color-bg-brand-hover);
+    border-color: var(--yd-color-bg-brand-hover);
+  }
+
+  &:has(input:indeterminate) &__indicator {
+    border-color: var(--yd-color-line-brand);
+
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: block;
+      width: var(--yd-checkbox-indeterminacy-marker-size);
+      height: var(--yd-checkbox-indeterminacy-marker-size);
+      content: '';
+      background-color: var(--yd-color-bg-brand);
+      border-radius: var(--yd-border-radius-xs);
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &:has(input:disabled) {
+    color: var(--yd-color-control-text-disabled);
+    cursor: not-allowed;
+
+    #{$block}__indicator {
+      background-color: var(--yd-color-control-bg-disabled);
+      border-color: var(--yd-color-control-border-disabled);
+
+      &::before {
+        background-color: rgb(var(--yd-color-blue-900-rgb), 0.32);
+      }
+    }
+  }
+
+  &:has(input:disabled:checked) &__indicator {
+    background-color: rgb(var(--yd-color-blue-900-rgb), 0.32);
+    border-color: transparent;
+  }
+}
