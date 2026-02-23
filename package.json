@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "@bem-react/classname": "^1.7.0",
+    "react-paginate": "^8.3.0",
     "react-transition-group": "^4.4.5"
   },
   "devDependencies": {

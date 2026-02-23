@@ -1,0 +1,67 @@
+@use '../variables';
+
+$block: '.#{variables.$ns}pagination';
+
+#{$block} {
+  display: flex;
+  justify-content: center;
+  padding: var(--yd-spacing-xs);
+  background-color: var(--yd-color-bg-primary);
+  border-radius: var(--yd-border-radius-l);
+
+  &__container {
+    display: flex;
+    gap: var(--yd-spacing-2xs);
+    justify-content: center;
+  }
+
+  &__page,
+  &__next,
+  &__previous,
+  &__break {
+    overflow: hidden;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: var(--yd-border-radius-m);
+    transition:
+      background-color 0.15s ease,
+      color 0.15s ease;
+
+    &:hover {
+      background-color: var(--yd-color-bg-brand-light);
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  &__page.active {
+    font-weight: 500;
+    color: var(--yd-color-text-primary-inverted);
+    cursor: auto;
+    background-color: var(--yd-color-bg-brand);
+  }
+
+  &__next,
+  &__previous {
+    svg {
+      width: 24px;
+      height: 24px;
+      color: var(--yd-color-icon);
+    }
+
+    &.disabled {
+      cursor: auto;
+      background-color: transparent;
+
+      svg {
+        color: rgb(var(--yd-color-blue-900-rgb), 0.3);
+      }
+    }
+  }
+}
