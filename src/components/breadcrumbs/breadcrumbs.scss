@@ -1,0 +1,31 @@
+@use '../variables';
+
+$block: '.#{variables.$ns}breadcrumbs';
+
+#{$block} {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+  color: var(--yd-color-text-primary);
+
+  &__linkItem,
+  &__item {
+    &:last-child {
+      color: var(--yd-color-text-secondary);
+    }
+  }
+
+  &__linkItem {
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: var(--yd-color-text-brand);
+    }
+  }
+
+  &__separator {
+    width: 16px;
+    height: 16px;
+    color: var(--yd-color-icon);
+  }
+}
