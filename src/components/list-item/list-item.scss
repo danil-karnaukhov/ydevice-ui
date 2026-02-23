@@ -1,0 +1,29 @@
+@use '../variables';
+
+$block: '.#{variables.$ns}listItem';
+
+#{$block} {
+  display: flex;
+  gap: var(--yd-spacing-xs);
+  align-items: center;
+  min-height: 32px;
+  padding: 0 var(--yd-spacing-xs);
+  cursor: pointer;
+  border-radius: var(--yd-spacing-2xs);
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: var(--yd-color-bg-brand-light);
+  }
+
+  &__titleWrapper {
+    display: flex;
+    gap: var(--yd-spacing-2xs);
+  }
+
+  &__subtitle {
+    flex-shrink: 0;
+    color: var(--yd-color-text-hint);
+    white-space: nowrap;
+  }
+}

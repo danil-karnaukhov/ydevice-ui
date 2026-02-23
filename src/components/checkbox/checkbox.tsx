@@ -21,7 +21,7 @@ export type CheckboxProps = Omit<ComponentPropsWithRef<'input'>, 'type' | 'size'
 const b = block('checkbox')
 
 export const Checkbox = (props: CheckboxProps) => {
-  const { size, label, rootRef, ref, className, indeterminate, checked, onChange, ...rest } = props
+  const { size = 'm', label, rootRef, ref, className, indeterminate, checked, onChange, ...rest } = props
 
   const classes = b({ size }, className)
 

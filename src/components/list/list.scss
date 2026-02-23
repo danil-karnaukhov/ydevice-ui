@@ -1,0 +1,9 @@
+@use '../variables';
+
+$block: '.#{variables.$ns}list';
+
+#{$block} {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
