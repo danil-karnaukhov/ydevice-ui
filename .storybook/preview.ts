@@ -5,6 +5,11 @@ import './preview.scss'
 
 const preview: Preview = {
   parameters: {
+    options: {
+      storySort: {
+        order: ['Inputs', 'Data display', 'Navigation', 'Feedback', 'Miscellaneous'],
+      },
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,

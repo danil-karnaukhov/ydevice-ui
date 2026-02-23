@@ -11,7 +11,7 @@ const icons = {
 }
 
 const meta = {
-  title: 'Select',
+  title: 'Inputs/Select',
   component: Select,
   argTypes: {
     variant: {

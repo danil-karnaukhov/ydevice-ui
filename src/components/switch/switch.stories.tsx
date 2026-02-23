@@ -4,7 +4,7 @@ import type { Meta, StoryFn } from '@storybook/react-vite'
 import { Switch } from './switch'
 
 const meta = {
-  title: 'Switch',
+  title: 'Inputs/Switch',
   component: Switch,
   argTypes: {
     label: {

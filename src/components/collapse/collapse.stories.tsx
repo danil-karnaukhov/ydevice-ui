@@ -6,7 +6,7 @@ import { Button } from '../button/button'
 import { Collapse } from './collapse'
 
 const meta = {
-  title: 'Collapse',
+  title: 'Miscellaneous/Collapse',
   component: Collapse,
 } satisfies Meta<typeof Collapse>
 

@@ -12,7 +12,7 @@ const icons = {
 }
 
 const meta = {
-  title: 'Input',
+  title: 'Inputs/Input',
   component: Input,
   argTypes: {
     prefix: {

@@ -3,7 +3,7 @@ import type { Meta, StoryFn } from '@storybook/react-vite'
 import { Skeleton } from './skeleton'
 
 const meta = {
-  title: 'Skeleton',
+  title: 'Feedback/Skeleton',
   component: Skeleton,
   argTypes: {
     width: {

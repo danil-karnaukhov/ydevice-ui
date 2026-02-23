@@ -4,7 +4,7 @@ import type { Meta, StoryFn } from '@storybook/react-vite'
 import { Pagination } from './pagination'
 
 const meta = {
-  title: 'Pagination',
+  title: 'Navigation/Pagination',
   component: Pagination,
   args: {
     pageCount: 10,

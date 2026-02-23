@@ -11,7 +11,7 @@ const icons = {
 }
 
 const meta = {
-  title: 'Button',
+  title: 'Inputs/Button',
   component: Button,
   argTypes: {
     startIcon: {

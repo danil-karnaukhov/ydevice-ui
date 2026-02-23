@@ -10,7 +10,7 @@ const icons = {
 }
 
 const meta = {
-  title: 'Icon Button',
+  title: 'Inputs/Icon Button',
   component: IconButton,
   argTypes: {
     variant: {

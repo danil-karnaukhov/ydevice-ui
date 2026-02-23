@@ -4,7 +4,7 @@ import type { Meta, StoryFn } from '@storybook/react-vite'
 import { Checkbox } from './checkbox'
 
 const meta = {
-  title: 'Checkbox',
+  title: 'Inputs/Checkbox',
   component: Checkbox,
   argTypes: {
     label: {

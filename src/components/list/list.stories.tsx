@@ -14,7 +14,7 @@ const options = [
 ]
 
 const meta = {
-  title: 'List',
+  title: 'Data display/List',
   component: List,
 } satisfies Meta<typeof List>
 
