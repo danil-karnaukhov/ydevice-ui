@@ -1,0 +1,50 @@
+@use '../variables';
+
+$block: '.#{variables.$ns}collapse';
+
+#{$block} {
+  --animation-duration: 0.2s;
+
+  overflow: hidden;
+
+  &_initiallyClosed {
+    max-height: 0;
+    opacity: 0;
+  }
+
+  &.collapseEnter {
+    max-height: 0;
+    opacity: 0;
+  }
+
+  &.collapseEnterActive {
+    max-height: var(--max-height);
+    opacity: 1;
+    transition:
+      max-height var(--animation-duration) ease-in-out,
+      opacity var(--animation-duration) ease-in-out;
+  }
+
+  &.collapseEnterDone {
+    max-height: none;
+    opacity: 1;
+  }
+
+  &.collapseExit {
+    max-height: var(--max-height);
+    opacity: 1;
+  }
+
+  &.collapseExitActive {
+    max-height: 0;
+    opacity: 0;
+    transition:
+      max-height var(--animation-duration) ease-in-out,
+      opacity var(--animation-duration) ease-in-out;
+  }
+
+  &.collapseExitDone {
+    max-height: 0;
+    opacity: 0;
+  }
+}

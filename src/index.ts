@@ -1,6 +1,7 @@
 export * from './components/breadcrumbs/breadcrumbs'
 export * from './components/button/button'
 export * from './components/checkbox/checkbox'
+export * from './components/collapse/collapse'
 export * from './components/icon-button/icon-button'
 export * from './components/input/input'
 export * from './components/select/select'
