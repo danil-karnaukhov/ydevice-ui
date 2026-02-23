@@ -1,0 +1,37 @@
+@use '../../variables';
+
+$block: '.#{variables.$ns}selectDropdown';
+
+#{$block} {
+  position: absolute;
+  padding-top: var(--yd-spacing-2xs);
+
+  &__optionList {
+    display: flex;
+    flex-direction: column;
+    max-height: 230px;
+    padding: 6px 0;
+    overflow-y: auto;
+    background-color: var(--yd-color-bg-primary);
+    border-radius: var(--yd-border-radius-m);
+    box-shadow: 0 2px 8px 0 rgb(129, 135, 189, 0.22);
+  }
+
+  &.animationEnter {
+    opacity: 0;
+  }
+
+  &.animationEnterActive {
+    opacity: 1;
+    transition: opacity 0.2s ease;
+  }
+
+  &.animationExit {
+    opacity: 1;
+  }
+
+  &.animationExitActive {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+}

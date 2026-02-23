@@ -1,0 +1,138 @@
+@use '../../variables';
+
+$block: '.#{variables.$ns}selectInput';
+
+#{$block} {
+  display: flex;
+  gap: var(--yd-spacing-xs);
+  align-items: center;
+  width: 100%;
+  height: var(--yd-select-input-height);
+  padding: 0 var(--yd-select-input-padding);
+  font-size: var(--yd-select-input-font-size);
+  cursor: pointer;
+  background-color: var(--yd-select-input-color-bg);
+  border: 1px solid var(--yd-select-input-color-border);
+  border-radius: var(--yd-border-radius-m);
+  transition: border-color 0.3s ease;
+
+  &:hover {
+    border-color: var(--yd-select-input-color-border-hover);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &_open,
+  &_open:hover,
+  &:focus-visible {
+    border-color: var(--yd-select-input-color-border-focus);
+  }
+
+  &_disabled,
+  &_disabled:hover {
+    color: var(--yd-color-control-text-disabled);
+    cursor: not-allowed;
+    background-color: rgb(var(--yd-color-blue-900-rgb), 0.03);
+    border-color: var(--yd-select-input-color-border);
+  }
+
+  &_hasError {
+    &,
+    &:hover,
+    &:focus-visible,
+    #{$block}_disabled {
+      border-color: var(--yd-color-line-danger);
+    }
+  }
+
+  &_variant {
+    &_outlined {
+      --yd-select-input-color-bg: var(--yd-color-bg-primary);
+      --yd-select-input-color-border: var(--yd-color-gray-200);
+      --yd-select-input-color-border-hover: var(--yd-color-gray-500);
+      --yd-select-input-color-border-focus: var(--yd-color-line-brand);
+    }
+  }
+
+  &_size {
+    &_s {
+      --yd-select-input-height: 32px;
+      --yd-select-input-padding: var(--yd-spacing-xs);
+      --yd-select-input-font-size: 14px;
+      --yd-select-input-icon-size: 16px;
+    }
+
+    &_m {
+      --yd-select-input-height: 40px;
+      --yd-select-input-padding: var(--yd-spacing-s);
+      --yd-select-input-font-size: 14px;
+      --yd-select-input-icon-size: 20px;
+    }
+
+    &_l {
+      --yd-select-input-height: 48px;
+      --yd-select-input-padding: var(--yd-spacing-s);
+      --yd-select-input-font-size: 16px;
+      --yd-select-input-icon-size: 24px;
+    }
+  }
+
+  &__placeholder,
+  &__selectedOption {
+    flex-grow: 1;
+  }
+
+  &__placeholder {
+    color: var(--yd-color-text-hint);
+  }
+
+  &__arrow {
+    transition: transform 0.2s ease;
+  }
+
+  &_open &__arrow {
+    transform: rotate(-180deg);
+  }
+
+  & > svg {
+    width: var(--yd-select-input-icon-size);
+    height: var(--yd-select-input-icon-size);
+    color: var(--yd-color-icon);
+  }
+
+  &__clearButton {
+    display: inline-flex;
+    visibility: hidden;
+    color: var(--yd-color-icon);
+    background-color: transparent;
+    opacity: 0;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: var(--yd-color-text-secondary);
+    }
+
+    &:focus-visible {
+      color: var(--yd-color-text-primary);
+      outline: none;
+    }
+
+    &:disabled {
+      color: var(--yd-color-control-text-disabled);
+      cursor: inherit;
+    }
+
+    svg {
+      width: var(--yd-select-input-icon-size);
+      height: var(--yd-select-input-icon-size);
+    }
+  }
+
+  &_hasValue &__clearButton {
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.3s ease;
+  }
+}
