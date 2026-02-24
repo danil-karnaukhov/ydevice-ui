@@ -4,28 +4,28 @@ $block: '.#{variables.$ns}checkbox';
 
 #{$block} {
   display: inline-flex;
-  gap: var(--yd-spacing-xs);
+  gap: var(--yd-checkbox-gap);
   align-items: center;
-  font-size: var(--yd-checkbox-font-size);
+  line-height: var(--yd-text-line-height-s);
   cursor: pointer;
 
   &_size {
     &_s {
       --yd-checkbox-size: 16px;
-      --yd-checkbox-indeterminacy-marker-size: 6px;
-      --yd-checkbox-font-size: var(--yd-text-size-s);
+      --yd-checkbox-gap: var(--yd-spacing-xs);
+      --yd-checkbox-text-size: var(--yd-text-size-s);
     }
 
     &_m {
-      --yd-checkbox-size: 18px;
-      --yd-checkbox-indeterminacy-marker-size: 8px;
-      --yd-checkbox-font-size: var(--yd-text-size-m);
+      --yd-checkbox-size: 20px;
+      --yd-checkbox-gap: var(--yd-spacing-xs);
+      --yd-checkbox-text-size: var(--yd-text-size-m);
     }
 
     &_l {
       --yd-checkbox-size: 20px;
-      --yd-checkbox-indeterminacy-marker-size: 10px;
-      --yd-checkbox-font-size: var(--yd-text-size-l);
+      --yd-checkbox-gap: var(--yd-spacing-s);
+      --yd-checkbox-text-size: var(--yd-text-size-l);
     }
   }
 
@@ -41,8 +41,8 @@ $block: '.#{variables.$ns}checkbox';
     border: 1px solid var(--yd-color-line-neutral);
     border-radius: var(--yd-border-radius-s);
     transition:
-      background-color 0.3s ease,
-      border-color 0.3s ease;
+      background-color 0.2s ease,
+      border-color 0.2s ease;
 
     input {
       position: absolute;
@@ -59,53 +59,60 @@ $block: '.#{variables.$ns}checkbox';
     }
   }
 
+  &__label {
+    font-size: var(--yd-checkbox-text-size);
+  }
+
   &:hover &__indicator {
     border-color: var(--yd-color-line-neutral-hover);
   }
 
-  &:has(input:checked) &__indicator {
-    background-color: var(--yd-color-bg-brand);
-    border-color: var(--yd-color-bg-brand);
-  }
-
-  &:has(input:checked):hover &__indicator {
-    background-color: var(--yd-color-bg-brand-hover);
-    border-color: var(--yd-color-bg-brand-hover);
-  }
-
+  &:has(input:checked) &__indicator,
   &:has(input:indeterminate) &__indicator {
-    border-color: var(--yd-color-line-brand);
-
-    &::before {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      display: block;
-      width: var(--yd-checkbox-indeterminacy-marker-size);
-      height: var(--yd-checkbox-indeterminacy-marker-size);
-      content: '';
-      background-color: var(--yd-color-bg-brand);
-      border-radius: var(--yd-border-radius-xs);
-      transform: translate(-50%, -50%);
-    }
+    background-color: var(--yd-color-bg-brand);
+    border-color: transparent;
   }
 
-  &:has(input:disabled) {
-    color: var(--yd-color-text-disabled);
+  &:has(input:indeterminate) &__indicator::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: calc(100% - 4px);
+    height: 2px;
+    content: '';
+    background-color: var(--yd-color-text-primary-inverted);
+    border-radius: var(--yd-border-radius-xs);
+    transform: translate(-50%, -50%);
+  }
+
+  &:has(input:checked):hover &__indicator,
+  &:has(input:indeterminate):hover &__indicator {
+    background-color: var(--yd-color-bg-brand-hover);
+  }
+
+  &:has(input:focus-visible) &__indicator {
+    outline: 3px solid var(--yd-color-outline-brand);
+    outline-offset: 2px;
+  }
+
+  &:has(input:disabled),
+  &:has(input:disabled:checked),
+  &:has(input:disabled:indeterminate) {
     cursor: not-allowed;
 
     #{$block}__indicator {
+      color: var(--yd-color-text-disabled);
       background-color: var(--yd-color-bg-disabled);
-      border-color: var(--yd-color-bg-disabled);
+      border-color: transparent;
 
       &::before {
-        background-color: rgb(var(--yd-color-blue-900-rgb), 0.32);
+        background-color: var(--yd-color-text-disabled);
       }
     }
-  }
 
-  &:has(input:disabled:checked) &__indicator {
-    background-color: rgb(var(--yd-color-blue-900-rgb), 0.32);
-    border-color: transparent;
+    #{$block}__label {
+      color: var(--yd-color-text-disabled);
+    }
   }
 }

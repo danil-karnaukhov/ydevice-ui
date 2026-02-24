@@ -44,7 +44,7 @@ export const Checkbox = (props: CheckboxProps) => {
         {checked && <CheckIcon />}
       </span>
 
-      {label}
+      {label && <span className={b('label')}>{label}</span>}
     </label>
   )
 }
