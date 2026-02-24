@@ -18,9 +18,15 @@ export type SwitchProps = Omit<ComponentPropsWithRef<'input'>, 'type' | 'size' |
 const b = block('switch')
 
 export const Switch = (props: SwitchProps) => {
-  const { size = 'm', label, rootRef, className, onChange, ...rest } = props
+  const { size = 'm', label, rootRef, disabled, className, onChange, ...rest } = props
 
-  const classes = b({ size }, className)
+  const classes = b(
+    {
+      size,
+      disabled,
+    },
+    className,
+  )
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     onChange?.(event.target.checked, event)
@@ -29,10 +35,10 @@ export const Switch = (props: SwitchProps) => {
   return (
     <label className={classes} ref={rootRef}>
       <span className={b('indicator')}>
-        <input type='checkbox' onChange={handleChange} {...rest} />
+        <input type='checkbox' disabled={disabled} onChange={handleChange} {...rest} />
       </span>
 
-      {label}
+      {label && <span className={b('label')}>{label}</span>}
     </label>
   )
 }

@@ -4,9 +4,9 @@ $block: '.#{variables.$ns}switch';
 
 #{$block} {
   display: inline-flex;
-  gap: var(--yd-spacing-xs);
+  gap: var(--yd-switch-gap);
   align-items: center;
-  font-size: var(--yd-switch-font-size);
+  line-height: var(--yd-text-line-height-s);
   cursor: pointer;
 
   &_size {
@@ -14,21 +14,24 @@ $block: '.#{variables.$ns}switch';
       --yd-switch-width: 28px;
       --yd-switch-height: 16px;
       --yd-switch-circle-size: 12px;
-      --yd-switch-font-size: var(--yd-text-size-s);
+      --yd-switch-gap: var(--yd-spacing-xs);
+      --yd-switch-text-size: var(--yd-text-size-s);
     }
 
     &_m {
       --yd-switch-width: 36px;
       --yd-switch-height: 20px;
       --yd-switch-circle-size: 16px;
-      --yd-switch-font-size: var(--yd-text-size-m);
+      --yd-switch-gap: var(--yd-spacing-xs);
+      --yd-switch-text-size: var(--yd-text-size-m);
     }
 
     &_l {
       --yd-switch-width: 44px;
       --yd-switch-height: 24px;
       --yd-switch-circle-size: 20px;
-      --yd-switch-font-size: var(--yd-text-size-l);
+      --yd-switch-gap: var(--yd-spacing-s);
+      --yd-switch-text-size: var(--yd-text-size-l);
     }
   }
 
@@ -38,9 +41,9 @@ $block: '.#{variables.$ns}switch';
     flex-shrink: 0;
     width: var(--yd-switch-width);
     height: var(--yd-switch-height);
-    background-color: var(--yd-color-gray-100);
-    border-radius: 12px;
-    transition: background-color 0.3s ease;
+    background-color: var(--yd-color-bg-neutral-accent);
+    border-radius: 100px;
+    transition: background-color 0.2s ease;
 
     &::before {
       position: absolute;
@@ -50,47 +53,62 @@ $block: '.#{variables.$ns}switch';
       width: var(--yd-switch-circle-size);
       height: var(--yd-switch-circle-size);
       content: '';
-      background-color: var(--yd-color-bg-base);
+      background-color: var(--yd-color-text-primary-inverted);
       border-radius: 50%;
-      transition: transform 0.3s ease;
+      transition: transform 0.2s ease;
     }
-  }
 
-  &:hover &__indicator {
-    background-color: var(--yd-color-gray-150);
-  }
+    &:has(input:checked) {
+      background-color: var(--yd-color-bg-brand);
 
-  &:has(input:checked) &__indicator {
-    background-color: var(--yd-color-bg-brand);
-
-    &::before {
-      transform: translateX(var(--yd-switch-circle-size));
+      &::before {
+        transform: translateX(var(--yd-switch-circle-size));
+      }
     }
-  }
 
-  &:has(input:checked):hover &__indicator {
-    background-color: var(--yd-color-bg-brand-hover);
-  }
+    &:has(input:focus-visible) {
+      outline: 3px solid var(--yd-color-outline-brand);
+      outline-offset: 2px;
+    }
 
-  &:has(input:disabled) {
-    color: var(--yd-color-text-disabled);
-    cursor: not-allowed;
-
-    #{$block}__indicator {
+    &:has(input:disabled) {
       background-color: var(--yd-color-bg-disabled);
     }
+
+    &:has(input:disabled:checked) {
+      background-color: var(--yd-color-bg-brand);
+      opacity: 0.35;
+    }
+
+    input {
+      position: absolute;
+      inset: 0;
+      appearance: none;
+      cursor: inherit;
+      border-radius: inherit;
+      opacity: 0;
+    }
   }
 
-  &:has(input:disabled:checked) &__indicator {
-    background-color: rgb(var(--yd-color-blue-900-rgb), 0.32);
+  &__label {
+    font-size: var(--yd-switch-text-size);
   }
 
-  input {
-    position: absolute;
-    inset: 0;
-    appearance: none;
-    cursor: inherit;
-    border-radius: inherit;
-    opacity: 0;
+  &:hover:not(&_disabled) {
+    #{$block}__indicator {
+      background-color: var(--yd-color-bg-neutral-accent-hover);
+    }
+
+    #{$block}__indicator:has(input:checked) {
+      background-color: var(--yd-color-bg-brand-hover);
+    }
+  }
+
+  &_disabled {
+    cursor: not-allowed;
+
+    #{$block}__label {
+      color: var(--yd-color-text-disabled);
+    }
   }
 }
