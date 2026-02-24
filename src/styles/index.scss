@@ -5,15 +5,15 @@
 @use 'colors/background';
 @use 'colors/line';
 @use 'colors/icon';
-@use 'colors/control';
+@use 'colors/effect';
 @use 'typography';
 @use 'border-radius';
 @use 'spacing';
 
 body {
-  font-family: var(--yd-font-family);
-  font-size: var(--yd-body-1-font-size);
-  font-weight: var(--yd-body-font-weight);
-  line-height: var(--yd-body-1-line-height);
+  font-family: var(--yd-text-family);
+  font-size: var(--yd-text-size-m);
+  font-weight: 400;
+  line-height: var(--yd-text-line-height-m);
   color: var(--yd-color-text-primary);
 }

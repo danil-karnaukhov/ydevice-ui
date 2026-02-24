@@ -29,7 +29,7 @@ $block: '.#{variables.$ns}button';
   }
 
   &:disabled:not(&_loading) {
-    color: var(--yd-color-control-text-disabled);
+    color: var(--yd-color-text-disabled);
     cursor: not-allowed;
     background-color: var(--yd-button-color-bg-disabled);
     border-color: var(--yd-button-color-border-disabled);
@@ -42,13 +42,11 @@ $block: '.#{variables.$ns}button';
   &_variant_filled {
     --yd-button-color-text: var(--yd-color-text-primary-inverted);
     --yd-button-color-text-hover: var(--yd-color-text-primary-inverted);
-    --yd-button-color-bg-disabled: var(--yd-color-control-bg-disabled);
+    --yd-button-color-bg-disabled: var(--yd-color-bg-disabled);
     --yd-button-color-border: transparent;
     --yd-button-color-border-disabled: transparent;
 
     &#{$block}_color_brand {
-      --yd-button-color-text: var(--yd-color-text-brand-contrast);
-      --yd-button-color-text-hover: var(--yd-color-text-brand-contrast);
       --yd-button-color-bg: var(--yd-color-bg-brand);
       --yd-button-color-bg-hover: var(--yd-color-bg-brand-hover);
     }
@@ -72,7 +70,7 @@ $block: '.#{variables.$ns}button';
   &_variant_outlined {
     --yd-button-color-bg: transparent;
     --yd-button-color-bg-disabled: transparent;
-    --yd-button-color-border-disabled: var(--yd-color-control-border-disabled);
+    --yd-button-color-border-disabled: var(--yd-color-text-disabled);
 
     &#{$block}_color_brand {
       --yd-button-color-text: var(--yd-color-text-brand);
@@ -164,19 +162,19 @@ $block: '.#{variables.$ns}button';
 
   &_color {
     &_brand {
-      --yd-button-color-outline-focus: var(--yd-color-control-focus-outline-brand);
+      --yd-button-color-outline-focus: var(--yd-color-outline-brand);
     }
 
     &_success {
-      --yd-button-color-outline-focus: var(--yd-color-control-focus-outline-success);
+      --yd-button-color-outline-focus: var(--yd-color-outline-success);
     }
 
     &_warning {
-      --yd-button-color-outline-focus: var(--yd-color-control-focus-outline-warning);
+      --yd-button-color-outline-focus: var(--yd-color-outline-warning);
     }
 
     &_danger {
-      --yd-button-color-outline-focus: var(--yd-color-control-focus-outline-danger);
+      --yd-button-color-outline-focus: var(--yd-color-outline-danger);
     }
   }
 
@@ -202,7 +200,7 @@ $block: '.#{variables.$ns}button';
     &_xs {
       --yd-button-height: 24px;
       --yd-button-padding: var(--yd-spacing-xs);
-      --yd-button-font-size: 14px;
+      --yd-button-font-size: var(--yd-text-size-s);
       --yd-button-icon-size: 16px;
       --yd-button-icon-offset: -1px;
     }
@@ -210,7 +208,7 @@ $block: '.#{variables.$ns}button';
     &_s {
       --yd-button-height: 32px;
       --yd-button-padding: var(--yd-spacing-s);
-      --yd-button-font-size: 14px;
+      --yd-button-font-size: var(--yd-text-size-s);
       --yd-button-icon-size: 20px;
       --yd-button-icon-offset: -3px;
     }
@@ -218,7 +216,7 @@ $block: '.#{variables.$ns}button';
     &_m {
       --yd-button-height: 40px;
       --yd-button-padding: var(--yd-spacing-m);
-      --yd-button-font-size: 16px;
+      --yd-button-font-size: var(--yd-text-size-m);
       --yd-button-icon-size: 24px;
       --yd-button-icon-offset: -5px;
     }
@@ -226,7 +224,7 @@ $block: '.#{variables.$ns}button';
     &_l {
       --yd-button-height: 48px;
       --yd-button-padding: var(--yd-spacing-l);
-      --yd-button-font-size: 18px;
+      --yd-button-font-size: var(--yd-text-size-l);
       --yd-button-icon-size: 28px;
       --yd-button-icon-offset: -9px;
     }

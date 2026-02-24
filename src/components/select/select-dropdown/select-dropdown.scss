@@ -12,9 +12,9 @@ $block: '.#{variables.$ns}selectDropdown';
     max-height: 230px;
     padding: 6px 0;
     overflow-y: auto;
-    background-color: var(--yd-color-bg-primary);
+    background-color: var(--yd-color-bg-base);
     border-radius: var(--yd-border-radius-m);
-    box-shadow: 0 2px 8px 0 rgb(129, 135, 189, 0.22);
+    box-shadow: 0 2px 8px 0 var(--yd-color-shadow);
   }
 
   &.animationEnter {

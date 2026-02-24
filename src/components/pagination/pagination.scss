@@ -6,7 +6,7 @@ $block: '.#{variables.$ns}pagination';
   display: flex;
   justify-content: center;
   padding: var(--yd-spacing-xs);
-  background-color: var(--yd-color-bg-primary);
+  background-color: var(--yd-color-bg-base);
   border-radius: var(--yd-border-radius-l);
 
   &__container {
@@ -60,7 +60,7 @@ $block: '.#{variables.$ns}pagination';
       background-color: transparent;
 
       svg {
-        color: rgb(var(--yd-color-blue-900-rgb), 0.3);
+        color: var(--yd-color-text-disabled);
       }
     }
   }

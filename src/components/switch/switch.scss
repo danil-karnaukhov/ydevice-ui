@@ -14,21 +14,21 @@ $block: '.#{variables.$ns}switch';
       --yd-switch-width: 28px;
       --yd-switch-height: 16px;
       --yd-switch-circle-size: 12px;
-      --yd-switch-font-size: 13px;
+      --yd-switch-font-size: var(--yd-text-size-s);
     }
 
     &_m {
       --yd-switch-width: 36px;
       --yd-switch-height: 20px;
       --yd-switch-circle-size: 16px;
-      --yd-switch-font-size: 14px;
+      --yd-switch-font-size: var(--yd-text-size-m);
     }
 
     &_l {
       --yd-switch-width: 44px;
       --yd-switch-height: 24px;
       --yd-switch-circle-size: 20px;
-      --yd-switch-font-size: 16px;
+      --yd-switch-font-size: var(--yd-text-size-l);
     }
   }
 
@@ -50,7 +50,7 @@ $block: '.#{variables.$ns}switch';
       width: var(--yd-switch-circle-size);
       height: var(--yd-switch-circle-size);
       content: '';
-      background-color: var(--yd-color-bg-primary);
+      background-color: var(--yd-color-bg-base);
       border-radius: 50%;
       transition: transform 0.3s ease;
     }
@@ -73,11 +73,11 @@ $block: '.#{variables.$ns}switch';
   }
 
   &:has(input:disabled) {
-    color: var(--yd-color-control-text-disabled);
+    color: var(--yd-color-text-disabled);
     cursor: not-allowed;
 
     #{$block}__indicator {
-      background-color: var(--yd-color-control-bg-disabled);
+      background-color: var(--yd-color-bg-disabled);
     }
   }
 

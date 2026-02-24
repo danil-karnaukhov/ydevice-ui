@@ -1,7 +1,12 @@
 :root {
-  --yd-color-bg-primary: var(--yd-color-white);
-  --yd-color-bg-secondary: var(--yd-color-gray-50);
-  --yd-color-bg-heavy: var(--yd-color-blue-950);
+  --yd-color-bg-base: var(--yd-color-white);
+  --yd-color-bg-inverse: var(--yd-color-blue-950);
+  --yd-color-bg-disabled: rgb(var(--yd-color-blue-900-rgb), 0.06);
+
+  --yd-color-bg-neutral: var(--yd-color-gray-50);
+  --yd-color-bg-neutral-hover: var(--yd-color-gray-100);
+  --yd-color-bg-neutral-accent: var(--yd-color-gray-100);
+  --yd-color-bg-neutral-accent-hover: var(--yd-color-gray-150);
 
   --yd-color-bg-brand: var(--yd-color-cyan-500);
   --yd-color-bg-brand-hover: var(--yd-color-cyan-700);

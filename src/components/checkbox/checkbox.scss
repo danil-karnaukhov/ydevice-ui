@@ -13,19 +13,19 @@ $block: '.#{variables.$ns}checkbox';
     &_s {
       --yd-checkbox-size: 16px;
       --yd-checkbox-indeterminacy-marker-size: 6px;
-      --yd-checkbox-font-size: 13px;
+      --yd-checkbox-font-size: var(--yd-text-size-s);
     }
 
     &_m {
       --yd-checkbox-size: 18px;
       --yd-checkbox-indeterminacy-marker-size: 8px;
-      --yd-checkbox-font-size: 14px;
+      --yd-checkbox-font-size: var(--yd-text-size-m);
     }
 
     &_l {
       --yd-checkbox-size: 20px;
       --yd-checkbox-indeterminacy-marker-size: 10px;
-      --yd-checkbox-font-size: 16px;
+      --yd-checkbox-font-size: var(--yd-text-size-l);
     }
   }
 
@@ -38,7 +38,7 @@ $block: '.#{variables.$ns}checkbox';
     width: var(--yd-checkbox-size);
     height: var(--yd-checkbox-size);
     color: var(--yd-color-text-primary-inverted);
-    border: 1px solid var(--yd-color-gray-200);
+    border: 1px solid var(--yd-color-line-neutral);
     border-radius: var(--yd-border-radius-s);
     transition:
       background-color 0.3s ease,
@@ -60,7 +60,7 @@ $block: '.#{variables.$ns}checkbox';
   }
 
   &:hover &__indicator {
-    border-color: var(--yd-color-line-brand);
+    border-color: var(--yd-color-line-neutral-hover);
   }
 
   &:has(input:checked) &__indicator {
@@ -91,12 +91,12 @@ $block: '.#{variables.$ns}checkbox';
   }
 
   &:has(input:disabled) {
-    color: var(--yd-color-control-text-disabled);
+    color: var(--yd-color-text-disabled);
     cursor: not-allowed;
 
     #{$block}__indicator {
-      background-color: var(--yd-color-control-bg-disabled);
-      border-color: var(--yd-color-control-border-disabled);
+      background-color: var(--yd-color-bg-disabled);
+      border-color: var(--yd-color-bg-disabled);
 
       &::before {
         background-color: rgb(var(--yd-color-blue-900-rgb), 0.32);

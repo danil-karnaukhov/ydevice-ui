@@ -24,7 +24,7 @@ $block: '.#{variables.$ns}input';
 
   &:has(input:disabled) {
     cursor: not-allowed;
-    background-color: rgb(var(--yd-color-blue-900-rgb), 0.03);
+    background-color: var(--yd-color-bg-disabled);
     border-color: var(--yd-input-color-border);
   }
 
@@ -39,16 +39,16 @@ $block: '.#{variables.$ns}input';
 
   &_variant {
     &_filled {
-      --yd-input-color-bg: var(--yd-color-bg-secondary);
+      --yd-input-color-bg: var(--yd-color-bg-neutral);
       --yd-input-color-border: transparent;
       --yd-input-color-border-hover: var(--yd-color-gray-150);
       --yd-input-color-border-focus: var(--yd-color-gray-200);
     }
 
     &_outlined {
-      --yd-input-color-bg: var(--yd-color-bg-primary);
-      --yd-input-color-border: var(--yd-color-gray-200);
-      --yd-input-color-border-hover: var(--yd-color-gray-500);
+      --yd-input-color-bg: var(--yd-color-bg-base);
+      --yd-input-color-border: var(--yd-color-line-neutral);
+      --yd-input-color-border-hover: var(--yd-color-line-neutral-hover);
       --yd-input-color-border-focus: var(--yd-color-line-brand);
     }
   }
@@ -75,21 +75,21 @@ $block: '.#{variables.$ns}input';
     &_s {
       --yd-input-height: 32px;
       --yd-input-padding: var(--yd-spacing-xs);
-      --yd-input-font-size: 14px;
+      --yd-input-font-size: var(--yd-text-size-s);
       --yd-input-icon-size: 16px;
     }
 
     &_m {
       --yd-input-height: 40px;
       --yd-input-padding: var(--yd-spacing-s);
-      --yd-input-font-size: 14px;
+      --yd-input-font-size: var(--yd-text-size-m);
       --yd-input-icon-size: 20px;
     }
 
     &_l {
       --yd-input-height: 48px;
       --yd-input-padding: var(--yd-spacing-s);
-      --yd-input-font-size: 16px;
+      --yd-input-font-size: var(--yd-text-size-l);
       --yd-input-icon-size: 24px;
     }
   }
@@ -108,7 +108,7 @@ $block: '.#{variables.$ns}input';
     }
 
     &:disabled {
-      color: var(--yd-color-control-text-disabled);
+      color: var(--yd-color-text-disabled);
     }
 
     &::placeholder {
@@ -125,7 +125,7 @@ $block: '.#{variables.$ns}input';
   &__prefix,
   &__suffix {
     display: inline-flex;
-    color: var(--yd-color-text-secondary);
+    color: var(--yd-color-text-hint);
 
     & > svg {
       width: var(--yd-input-icon-size);
@@ -161,7 +161,7 @@ $block: '.#{variables.$ns}input';
     }
 
     &:disabled {
-      color: var(--yd-color-control-text-disabled);
+      color: var(--yd-color-text-disabled);
       cursor: inherit;
     }
 

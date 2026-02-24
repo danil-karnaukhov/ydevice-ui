@@ -1,14 +1,17 @@
 :root {
-  --yd-font-family: 'Roboto', sans-serif;
+  --yd-text-family: 'Roboto', sans-serif;
 
-  --yd-body-font-weight: 400;
+  --yd-text-size-xs: 13px;
+  --yd-text-size-s: 14px;
+  --yd-text-size-m: 16px;
+  --yd-text-size-l: 18px;
+  --yd-text-size-xl: 20px;
+  --yd-text-size-2xl: 24px;
+  --yd-text-size-3xl: 32px;
+  --yd-text-size-4xl: 48px;
 
-  --yd-body-1-font-size: 14px;
-  --yd-body-1-line-height: 20px;
-
-  --yd-body-2-font-size: 16px;
-  --yd-body-2-line-height: 24px;
-
-  --yd-caption-font-size: 11px;
-  --yd-caption-line-height: 16px;
+  --yd-text-line-height-xs: 1.2;
+  --yd-text-line-height-s: 1.4;
+  --yd-text-line-height-m: 1.5;
+  --yd-text-line-height-l: 1.6;
 }
