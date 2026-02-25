@@ -12,20 +12,24 @@ $block: '.#{variables.$ns}input';
   cursor: text;
   background-color: var(--yd-input-color-bg);
   border: 1px solid var(--yd-input-color-border);
-  transition: border-color 0.3s ease;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
 
   &:hover {
+    background-color: var(--yd-input-color-bg-hover);
     border-color: var(--yd-input-color-border-hover);
   }
 
   &:has(input:focus) {
+    background-color: var(--yd-input-color-bg-focus);
     border-color: var(--yd-input-color-border-focus);
   }
 
   &:has(input:disabled) {
     cursor: not-allowed;
     background-color: var(--yd-color-bg-disabled);
-    border-color: var(--yd-input-color-border);
+    border-color: transparent;
   }
 
   &_hasError {
@@ -40,20 +44,24 @@ $block: '.#{variables.$ns}input';
   &_variant {
     &_filled {
       --yd-input-color-bg: var(--yd-color-bg-neutral);
+      --yd-input-color-bg-hover: var(--yd-color-bg-neutral-hover);
+      --yd-input-color-bg-focus: var(--yd-color-bg-neutral-hover);
       --yd-input-color-border: transparent;
-      --yd-input-color-border-hover: var(--yd-color-gray-150);
-      --yd-input-color-border-focus: var(--yd-color-gray-200);
+      --yd-input-color-border-hover: transparent;
+      --yd-input-color-border-focus: transparent;
     }
 
     &_outlined {
       --yd-input-color-bg: var(--yd-color-bg-base);
+      --yd-input-color-bg-hover: var(--yd-color-bg-base);
+      --yd-input-color-bg-focus: var(--yd-color-bg-base);
       --yd-input-color-border: var(--yd-color-line-neutral);
       --yd-input-color-border-hover: var(--yd-color-line-neutral-hover);
       --yd-input-color-border-focus: var(--yd-color-line-brand);
     }
   }
 
-  &_cornersShape {
+  &_shape {
     &_round {
       border-radius: var(--yd-input-border-radius);
     }
@@ -69,36 +77,52 @@ $block: '.#{variables.$ns}input';
     &_brickRound {
       border-radius: 0 var(--yd-input-border-radius) var(--yd-input-border-radius) 0;
     }
+
+    &_roundClear {
+      border-right: none;
+      border-radius: var(--yd-input-border-radius) 0 0 var(--yd-input-border-radius);
+    }
+
+    &_clearRound {
+      border-left: none;
+      border-radius: 0 var(--yd-input-border-radius) var(--yd-input-border-radius) 0;
+    }
+
+    &_clearClear {
+      border-right: none;
+      border-left: none;
+      border-radius: 0;
+    }
   }
 
   &_size {
     &_s {
       --yd-input-height: 32px;
       --yd-input-padding: var(--yd-spacing-xs);
-      --yd-input-font-size: var(--yd-text-size-s);
+      --yd-input-text-size: var(--yd-text-size-s);
       --yd-input-icon-size: 16px;
     }
 
     &_m {
       --yd-input-height: 40px;
       --yd-input-padding: var(--yd-spacing-s);
-      --yd-input-font-size: var(--yd-text-size-m);
+      --yd-input-text-size: var(--yd-text-size-m);
       --yd-input-icon-size: 20px;
     }
 
     &_l {
       --yd-input-height: 48px;
       --yd-input-padding: var(--yd-spacing-s);
-      --yd-input-font-size: var(--yd-text-size-l);
+      --yd-input-text-size: var(--yd-text-size-l);
       --yd-input-icon-size: 24px;
     }
   }
 
   input {
-    flex-grow: 1;
+    width: 100%;
     height: 100%;
     padding: 0 var(--yd-input-padding);
-    font-size: var(--yd-input-font-size);
+    font-size: var(--yd-input-text-size);
     color: var(--yd-color-text-primary);
     cursor: inherit;
     background-color: transparent;
@@ -113,6 +137,10 @@ $block: '.#{variables.$ns}input';
 
     &::placeholder {
       color: var(--yd-color-text-hint);
+    }
+
+    &:disabled::placeholder {
+      color: var(--yd-color-text-disabled);
     }
 
     &[type='number']::-webkit-inner-spin-button,
@@ -134,6 +162,13 @@ $block: '.#{variables.$ns}input';
     }
   }
 
+  &:has(input:disabled) :is(&__prefix, &__suffix) {
+    &,
+    & > svg {
+      color: var(--yd-color-text-disabled);
+    }
+  }
+
   &__prefix {
     margin-right: var(--yd-spacing-xs);
   }
@@ -145,11 +180,11 @@ $block: '.#{variables.$ns}input';
   &__clearButton {
     display: inline-flex;
     visibility: hidden;
-    margin-left: var(--yd-spacing-2xs);
+    margin-left: var(--yd-spacing-xs);
     color: var(--yd-color-icon);
     background-color: transparent;
     opacity: 0;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 
     &:hover {
       color: var(--yd-color-text-secondary);
@@ -174,7 +209,6 @@ $block: '.#{variables.$ns}input';
   &_hasValue &__clearButton {
     visibility: visible;
     opacity: 1;
-    transition: all 0.3s ease;
   }
 
   &:has(&__prefix) {

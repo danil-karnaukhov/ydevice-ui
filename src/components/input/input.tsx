@@ -12,11 +12,11 @@ export type InputVariant = 'filled' | 'outlined'
 
 export type InputSize = 's' | 'm' | 'l'
 
-export type InputCornersShape = 'round' | 'brick' | 'roundBrick' | 'brickRound'
+export type InputShape = 'round' | 'brick' | 'roundBrick' | 'brickRound' | 'roundClear' | 'clearRound' | 'clearClear'
 
 export type InputProps = Omit<ComponentPropsWithRef<'input'>, 'size' | 'prefix' | 'onClick' | 'onChange'> & {
   variant?: InputVariant
-  cornersShape?: InputCornersShape
+  shape?: InputShape
   size?: InputSize
   rootRef?: Ref<HTMLDivElement>
   prefix?: ReactNode
@@ -32,7 +32,7 @@ const b = block('input')
 export const Input = (props: InputProps) => {
   const {
     variant = 'outlined',
-    cornersShape = 'round',
+    shape = 'round',
     size = 'm',
     rootRef,
     ref,
@@ -51,7 +51,7 @@ export const Input = (props: InputProps) => {
   const classes = b(
     {
       variant,
-      cornersShape,
+      shape,
       size,
       clearable,
       hasError,

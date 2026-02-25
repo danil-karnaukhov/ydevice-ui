@@ -37,7 +37,7 @@ const meta = {
   },
   args: {
     variant: 'outlined',
-    cornersShape: 'round',
+    shape: 'round',
     size: 'm',
     placeholder: 'Введите значение',
     clearable: false,
@@ -73,21 +73,24 @@ Variants.argTypes = {
   },
 }
 
-export const CornersShape: StoryFn<typeof Input> = (args) => {
+export const Shape: StoryFn<typeof Input> = (args) => {
   const [value, setValue] = useState('')
 
   return (
     <div className='sb-column' style={{ width: '300px' }}>
-      <Input {...args} cornersShape='round' value={value} onChange={setValue} />
-      <Input {...args} cornersShape='brick' value={value} onChange={setValue} />
-      <Input {...args} cornersShape='roundBrick' value={value} onChange={setValue} />
-      <Input {...args} cornersShape='brickRound' value={value} onChange={setValue} />
+      <Input {...args} shape='round' value={value} onChange={setValue} />
+      <Input {...args} shape='brick' value={value} onChange={setValue} />
+      <Input {...args} shape='roundBrick' value={value} onChange={setValue} />
+      <Input {...args} shape='brickRound' value={value} onChange={setValue} />
+      <Input {...args} shape='roundClear' value={value} onChange={setValue} />
+      <Input {...args} shape='clearRound' value={value} onChange={setValue} />
+      <Input {...args} shape='clearClear' value={value} onChange={setValue} />
     </div>
   )
 }
 
-CornersShape.argTypes = {
-  cornersShape: {
+Shape.argTypes = {
+  shape: {
     table: { disable: true },
   },
 }
