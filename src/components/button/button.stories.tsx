@@ -28,7 +28,7 @@ const meta = {
   args: {
     variant: 'filled',
     color: 'brand',
-    cornersShape: 'round',
+    shape: 'round',
     size: 'm',
     children: 'Кнопка',
     fullWidth: false,
@@ -69,17 +69,17 @@ Colors.argTypes = {
   },
 }
 
-export const CornersShape: StoryFn<typeof Button> = (args) => (
+export const Shape: StoryFn<typeof Button> = (args) => (
   <div className='sb-row'>
-    <Button {...args} cornersShape='round' />
-    <Button {...args} cornersShape='brick' />
-    <Button {...args} cornersShape='roundBrick' />
-    <Button {...args} cornersShape='brickRound' />
+    <Button {...args} shape='round' />
+    <Button {...args} shape='brick' />
+    <Button {...args} shape='roundBrick' />
+    <Button {...args} shape='brickRound' />
   </div>
 )
 
-CornersShape.argTypes = {
-  cornersShape: {
+Shape.argTypes = {
+  shape: {
     table: { disable: true },
   },
 }

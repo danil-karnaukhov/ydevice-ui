@@ -7,7 +7,8 @@ $block: '.#{variables.$ns}button';
 
   position: relative;
   display: inline-flex;
-  gap: var(--yd-spacing-2xs);
+  gap: var(--yd-button-gap);
+  align-items: center;
   justify-content: center;
   height: var(--yd-button-height);
   padding: 0 var(--yd-button-padding);
@@ -16,8 +17,8 @@ $block: '.#{variables.$ns}button';
   background-color: var(--yd-button-color-bg);
   border: 1px solid var(--yd-button-color-border);
   transition:
-    color 0.3s ease,
-    background-color 0.3s ease;
+    color 0.2s ease,
+    background-color 0.2s ease;
 
   &:hover:not(&_loading) {
     color: var(--yd-button-color-text-hover);
@@ -25,7 +26,8 @@ $block: '.#{variables.$ns}button';
   }
 
   &:focus-visible {
-    outline: 4px solid var(--yd-button-color-outline-focus);
+    outline: 3px solid var(--yd-button-color-outline-focus);
+    outline-offset: 2px;
   }
 
   &:disabled:not(&_loading) {
@@ -178,7 +180,7 @@ $block: '.#{variables.$ns}button';
     }
   }
 
-  &_cornersShape {
+  &_shape {
     &_round {
       border-radius: var(--yd-button-border-radius);
     }
@@ -200,22 +202,25 @@ $block: '.#{variables.$ns}button';
     &_xs {
       --yd-button-height: 24px;
       --yd-button-padding: var(--yd-spacing-xs);
+      --yd-button-gap: var(--yd-spacing-3xs);
       --yd-button-font-size: var(--yd-text-size-s);
-      --yd-button-icon-size: 16px;
-      --yd-button-icon-offset: -1px;
+      --yd-button-icon-size: 20px;
+      --yd-button-icon-offset: -4px;
     }
 
     &_s {
       --yd-button-height: 32px;
       --yd-button-padding: var(--yd-spacing-s);
+      --yd-button-gap: var(--yd-spacing-2xs);
       --yd-button-font-size: var(--yd-text-size-s);
       --yd-button-icon-size: 20px;
-      --yd-button-icon-offset: -3px;
+      --yd-button-icon-offset: -4px;
     }
 
     &_m {
       --yd-button-height: 40px;
       --yd-button-padding: var(--yd-spacing-m);
+      --yd-button-gap: var(--yd-spacing-2xs);
       --yd-button-font-size: var(--yd-text-size-m);
       --yd-button-icon-size: 24px;
       --yd-button-icon-offset: -5px;
@@ -224,6 +229,7 @@ $block: '.#{variables.$ns}button';
     &_l {
       --yd-button-height: 48px;
       --yd-button-padding: var(--yd-spacing-l);
+      --yd-button-gap: var(--yd-spacing-2xs);
       --yd-button-font-size: var(--yd-text-size-l);
       --yd-button-icon-size: 28px;
       --yd-button-icon-offset: -9px;
@@ -234,13 +240,8 @@ $block: '.#{variables.$ns}button';
     width: 100%;
   }
 
-  &__label,
-  &__startIcon,
-  &__endIcon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+  &__label {
+    line-height: var(--yd-button-height);
   }
 
   &:not(:has(&__label)) {
@@ -252,12 +253,11 @@ $block: '.#{variables.$ns}button';
     }
   }
 
-  &_loading :is(&__label, &__startIcon, &__endIcon) {
-    visibility: hidden;
-  }
-
   &__startIcon,
   &__endIcon {
+    display: inline-flex;
+    flex-shrink: 0;
+
     & > svg {
       width: var(--yd-button-icon-size);
       height: var(--yd-button-icon-size);
@@ -270,5 +270,9 @@ $block: '.#{variables.$ns}button';
 
   &__endIcon {
     margin-right: var(--yd-button-icon-offset);
+  }
+
+  &_loading :is(&__label, &__startIcon, &__endIcon) {
+    visibility: hidden;
   }
 }

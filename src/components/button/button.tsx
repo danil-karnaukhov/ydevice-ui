@@ -9,14 +9,14 @@ export type ButtonVariant = 'filled' | 'outlined' | 'ghost' | 'text'
 
 export type ButtonColor = 'brand' | 'success' | 'warning' | 'danger'
 
-export type ButtonCornersShape = 'round' | 'brick' | 'roundBrick' | 'brickRound'
+export type ButtonShape = 'round' | 'brick' | 'roundBrick' | 'brickRound'
 
 export type ButtonSize = 'xs' | 's' | 'm' | 'l'
 
 export type ButtonProps = ComponentPropsWithRef<'button'> & {
   variant?: ButtonVariant
   color?: ButtonColor
-  cornersShape?: ButtonCornersShape
+  shape?: ButtonShape
   size?: ButtonSize
   startIcon?: ReactNode
   endIcon?: ReactNode
@@ -37,7 +37,7 @@ export const Button = (props: ButtonProps) => {
   const {
     variant = 'filled',
     color = 'brand',
-    cornersShape = 'round',
+    shape = 'round',
     size = 'm',
     startIcon,
     endIcon,
@@ -53,7 +53,7 @@ export const Button = (props: ButtonProps) => {
     {
       variant,
       color,
-      cornersShape,
+      shape,
       size,
       fullWidth,
       loading,

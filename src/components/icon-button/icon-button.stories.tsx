@@ -21,7 +21,7 @@ const meta = {
       control: { type: 'radio' },
       options: ['brand', 'success', 'warning', 'danger'],
     },
-    cornersShape: {
+    shape: {
       control: { type: 'radio' },
       options: ['round', 'brick', 'roundBrick', 'brickRound'],
     },
@@ -41,7 +41,7 @@ const meta = {
   args: {
     variant: 'filled',
     color: 'brand',
-    cornersShape: 'round',
+    shape: 'round',
     size: 'm',
     icon: <SettingsIcon />,
     fullWidth: false,
@@ -82,17 +82,17 @@ Colors.argTypes = {
   },
 }
 
-export const CornersShape: StoryFn<typeof IconButton> = (args) => (
+export const Shape: StoryFn<typeof IconButton> = (args) => (
   <div className='sb-row'>
-    <IconButton {...args} cornersShape='round' />
-    <IconButton {...args} cornersShape='brick' />
-    <IconButton {...args} cornersShape='roundBrick' />
-    <IconButton {...args} cornersShape='brickRound' />
+    <IconButton {...args} shape='round' />
+    <IconButton {...args} shape='brick' />
+    <IconButton {...args} shape='roundBrick' />
+    <IconButton {...args} shape='brickRound' />
   </div>
 )
 
-CornersShape.argTypes = {
-  cornersShape: {
+Shape.argTypes = {
+  shape: {
     table: { disable: true },
   },
 }
