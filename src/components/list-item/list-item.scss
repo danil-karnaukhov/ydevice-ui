@@ -4,25 +4,50 @@ $block: '.#{variables.$ns}listItem';
 
 #{$block} {
   display: flex;
-  gap: var(--yd-spacing-xs);
   align-items: center;
-  min-height: 32px;
-  padding: 0 var(--yd-spacing-xs);
+  padding: var(--yd-list-item-padding);
+  font-size: var(--yd-list-item-text-size);
+  line-height: var(--yd-text-line-height-xs);
   cursor: pointer;
-  border-radius: var(--yd-spacing-2xs);
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s ease;
 
   &:hover {
+    background-color: var(--yd-color-bg-neutral);
+  }
+
+  &:not(&_showCheckbox)#{&}_selected {
     background-color: var(--yd-color-bg-brand-light);
+
+    &:hover {
+      background-color: var(--yd-color-bg-brand-light-hover);
+    }
   }
 
-  &__titleWrapper {
-    display: flex;
-    gap: var(--yd-spacing-2xs);
+  &_size {
+    &_s {
+      --yd-list-item-padding: var(--yd-spacing-2xs) var(--yd-spacing-xs);
+      --yd-list-item-text-size: var(--yd-text-size-s);
+    }
+
+    &_m {
+      --yd-list-item-padding: var(--yd-spacing-xs) var(--yd-spacing-s);
+      --yd-list-item-text-size: var(--yd-text-size-m);
+    }
+
+    &_l {
+      --yd-list-item-padding: var(--yd-spacing-xs) var(--yd-spacing-s);
+      --yd-list-item-text-size: var(--yd-text-size-l);
+    }
   }
 
-  &__subtitle {
+  &__checkbox {
+    margin-right: var(--yd-spacing-xs);
+  }
+
+  &__suffix {
+    display: inline-flex;
     flex-shrink: 0;
+    margin-left: var(--yd-spacing-2xs);
     color: var(--yd-color-text-hint);
     white-space: nowrap;
   }

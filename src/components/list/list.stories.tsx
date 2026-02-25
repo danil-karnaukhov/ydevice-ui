@@ -24,12 +24,7 @@ export const Default: StoryFn<typeof meta> = () => {
   return (
     <List style={{ width: '300px' }} selectedValues={selectedValues} onSelect={setSelectedValues}>
       {options.map((option) => (
-        <ListItem
-          key={option.value}
-          value={option.value}
-          isChecked={selectedValues.includes(option.value)}
-          showCheckbox
-        >
+        <ListItem key={option.value} value={option.value} selected={selectedValues.includes(option.value)} showCheckbox>
           {option.label}
         </ListItem>
       ))}

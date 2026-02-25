@@ -5,26 +5,37 @@ import { Checkbox } from '../checkbox/checkbox'
 
 import './list-item.scss'
 
+export type ListItemSize = 's' | 'm' | 'l'
+
 export type ListItemProps = ComponentPropsWithRef<'li'> & {
   value: string
-  subtitle?: ReactNode
+  size?: ListItemSize
+  suffix?: ReactNode
+  selected?: boolean
   showCheckbox?: boolean
-  isChecked?: boolean
 }
 
 const b = block('listItem')
 
 export const ListItem = (props: ListItemProps) => {
-  const { value, subtitle, showCheckbox, isChecked, children, className, ...rest } = props
+  const { value, size = 'm', suffix, selected, showCheckbox, children, className, ...rest } = props
+
+  const classes = b(
+    {
+      size,
+      selected,
+      showCheckbox,
+    },
+    className,
+  )
 
   return (
-    <li className={b(null, className)} data-value={value} {...rest}>
-      {showCheckbox && <Checkbox checked={isChecked} tabIndex={-1} readOnly />}
+    <li className={classes} data-value={value} {...rest}>
+      {showCheckbox && <Checkbox className={b('checkbox')} size={size} checked={selected} tabIndex={-1} readOnly />}
 
-      <span className={b('titleWrapper')}>
-        {children}
-        {subtitle && <span className={b('subtitle')}>{subtitle}</span>}
-      </span>
+      {children}
+
+      {suffix && <span className={b('suffix')}>{suffix}</span>}
     </li>
   )
 }
