@@ -4,23 +4,36 @@ $block: '.#{variables.$ns}pagination';
 
 #{$block} {
   display: flex;
-  justify-content: center;
-  padding: var(--yd-spacing-xs);
-  background-color: var(--yd-color-bg-base);
-  border-radius: var(--yd-border-radius-l);
+  gap: var(--yd-spacing-3xs);
 
-  &__container {
-    display: flex;
-    gap: var(--yd-spacing-2xs);
-    justify-content: center;
+  &_size {
+    &_s {
+      --yd-pagination-item-size: 32px;
+      --yd-pagination-item-icon-size: 16px;
+      --yd-pagination-item-text-size: var(--yd-text-size-s);
+    }
+
+    &_m {
+      --yd-pagination-item-size: 40px;
+      --yd-pagination-item-icon-size: 24px;
+      --yd-pagination-item-text-size: var(--yd-text-size-m);
+    }
+
+    &_l {
+      --yd-pagination-item-size: 48px;
+      --yd-pagination-item-icon-size: 24px;
+      --yd-pagination-item-text-size: var(--yd-text-size-l);
+    }
   }
 
   &__page,
   &__next,
   &__previous,
   &__break {
+    width: var(--yd-pagination-item-size);
+    height: var(--yd-pagination-item-size);
     overflow: hidden;
-    font-size: 16px;
+    font-size: var(--yd-pagination-item-text-size);
     cursor: pointer;
     border-radius: var(--yd-border-radius-m);
     transition:
@@ -31,17 +44,25 @@ $block: '.#{variables.$ns}pagination';
       background-color: var(--yd-color-bg-brand-light);
     }
 
+    &:has(a:focus-visible) {
+      outline: 3px solid var(--yd-color-outline-brand);
+      outline-offset: 2px;
+    }
+
     a {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 40px;
-      height: 40px;
+      width: 100%;
+      height: 100%;
+
+      &:focus {
+        outline: none;
+      }
     }
   }
 
   &__page.active {
-    font-weight: 500;
     color: var(--yd-color-text-primary-inverted);
     cursor: auto;
     background-color: var(--yd-color-bg-brand);
@@ -50,13 +71,13 @@ $block: '.#{variables.$ns}pagination';
   &__next,
   &__previous {
     svg {
-      width: 24px;
-      height: 24px;
+      width: var(--yd-pagination-item-icon-size);
+      height: var(--yd-pagination-item-icon-size);
       color: var(--yd-color-icon);
     }
 
     &.disabled {
-      cursor: auto;
+      cursor: not-allowed;
       background-color: transparent;
 
       svg {
