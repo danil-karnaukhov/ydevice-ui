@@ -10,18 +10,21 @@ export type Breadcrumb = {
   href?: string
 }
 
+export type BreadcrumbsSize = 's' | 'm' | 'l'
+
 export type BreadcrumbsProps = ComponentPropsWithRef<'div'> & {
   items: Breadcrumb[]
+  size?: BreadcrumbsSize
   linkComponent?: ElementType
 }
 
 const b = block('breadcrumbs')
 
 export const Breadcrumbs = (props: BreadcrumbsProps) => {
-  const { items, linkComponent: LinkComponent = 'a', className, ...rest } = props
+  const { items, size = 'm', linkComponent: LinkComponent = 'a', className, ...rest } = props
 
   return (
-    <div className={b(null, className)} {...rest}>
+    <div className={b({ size }, className)} {...rest}>
       {items.map((item, index) => {
         const isNotLastItem = index !== items.length - 1
 
