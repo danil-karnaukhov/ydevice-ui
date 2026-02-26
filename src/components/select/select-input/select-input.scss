@@ -9,12 +9,12 @@ $block: '.#{variables.$ns}selectInput';
   width: 100%;
   height: var(--yd-select-input-height);
   padding: 0 var(--yd-select-input-padding);
-  font-size: var(--yd-select-input-font-size);
+  font-size: var(--yd-select-input-text-size);
   cursor: pointer;
   background-color: var(--yd-select-input-color-bg);
   border: 1px solid var(--yd-select-input-color-border);
   border-radius: var(--yd-border-radius-m);
-  transition: border-color 0.3s ease;
+  transition: border-color 0.2s ease;
 
   &:hover {
     border-color: var(--yd-select-input-color-border-hover);
@@ -34,8 +34,8 @@ $block: '.#{variables.$ns}selectInput';
   &_disabled:hover {
     color: var(--yd-color-text-disabled);
     cursor: not-allowed;
-    background-color: rgb(var(--yd-color-blue-900-rgb), 0.03);
-    border-color: var(--yd-select-input-color-border);
+    background-color: var(--yd-color-bg-disabled);
+    border-color: transparent;
   }
 
   &_hasError {
@@ -60,21 +60,21 @@ $block: '.#{variables.$ns}selectInput';
     &_s {
       --yd-select-input-height: 32px;
       --yd-select-input-padding: var(--yd-spacing-xs);
-      --yd-select-input-font-size: var(--yd-text-size-s);
+      --yd-select-input-text-size: var(--yd-text-size-s);
       --yd-select-input-icon-size: 16px;
     }
 
     &_m {
       --yd-select-input-height: 40px;
       --yd-select-input-padding: var(--yd-spacing-s);
-      --yd-select-input-font-size: var(--yd-text-size-m);
+      --yd-select-input-text-size: var(--yd-text-size-m);
       --yd-select-input-icon-size: 20px;
     }
 
     &_l {
       --yd-select-input-height: 48px;
       --yd-select-input-padding: var(--yd-spacing-s);
-      --yd-select-input-font-size: var(--yd-text-size-l);
+      --yd-select-input-text-size: var(--yd-text-size-l);
       --yd-select-input-icon-size: 24px;
     }
   }
@@ -82,6 +82,9 @@ $block: '.#{variables.$ns}selectInput';
   &__placeholder,
   &__selectedOption {
     flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   &__placeholder {
@@ -97,9 +100,14 @@ $block: '.#{variables.$ns}selectInput';
   }
 
   & > svg {
+    flex-shrink: 0;
     width: var(--yd-select-input-icon-size);
     height: var(--yd-select-input-icon-size);
     color: var(--yd-color-icon);
+  }
+
+  &_disabled > :is(svg, &__placeholder) {
+    color: var(--yd-color-text-disabled);
   }
 
   &__clearButton {
@@ -108,7 +116,7 @@ $block: '.#{variables.$ns}selectInput';
     color: var(--yd-color-icon);
     background-color: transparent;
     opacity: 0;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 
     &:hover {
       color: var(--yd-color-text-secondary);
@@ -133,6 +141,5 @@ $block: '.#{variables.$ns}selectInput';
   &_hasValue &__clearButton {
     visibility: visible;
     opacity: 1;
-    transition: all 0.3s ease;
   }
 }

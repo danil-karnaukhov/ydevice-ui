@@ -4,24 +4,24 @@ import { type MouseEvent as ReactMouseEvent, useEffect, useRef, useState } from 
 import { createPortal } from 'react-dom'
 
 import { mergeRefs } from '../../utils/react'
+import { ListItem } from '../list-item/list-item'
 
 import { SelectDropdown, type SelectDropdownPosition } from './select-dropdown/select-dropdown'
 import { SelectInput, type SelectInputProps } from './select-input/select-input'
-import { SelectOption } from './select-option/select-option'
 
-export type SelectOptionType = {
+export type SelectOption = {
   label: string
   value: string
 }
 
 export type SelectProps = Omit<SelectInputProps, 'open'> & {
-  options: SelectOptionType[]
+  options: SelectOption[]
   value: string
   onChange: (value: string) => void
 }
 
 export const Select = (props: SelectProps) => {
-  const { options, value, disabled, ref, onChange, ...rest } = props
+  const { options, value, size, disabled, ref, onChange, ...rest } = props
 
   const [open, setOpen] = useState(false)
 
@@ -99,6 +99,7 @@ export const Select = (props: SelectProps) => {
       <SelectInput
         ref={mergeRefs(ref, inputRef)}
         selectedOptionLabel={selectedOption?.label}
+        size={size}
         open={open}
         disabled={disabled}
         onClick={toggleOpen}
@@ -110,13 +111,14 @@ export const Select = (props: SelectProps) => {
         createPortal(
           <SelectDropdown ref={dropdownRef} open={open} position={dropdownPosition}>
             {options.map((option) => (
-              <SelectOption
+              <ListItem
                 key={option.value}
-                isSelected={option.value === value}
+                selected={option.value === value}
+                size={size}
                 onClick={handleOptionSelect(option.value)}
               >
                 {option.label}
-              </SelectOption>
+              </ListItem>
             ))}
           </SelectDropdown>,
           dropdownContainer,

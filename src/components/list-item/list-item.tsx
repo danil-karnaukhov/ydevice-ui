@@ -8,7 +8,7 @@ import './list-item.scss'
 export type ListItemSize = 's' | 'm' | 'l'
 
 export type ListItemProps = ComponentPropsWithRef<'li'> & {
-  value: string
+  value?: string
   size?: ListItemSize
   suffix?: ReactNode
   selected?: boolean

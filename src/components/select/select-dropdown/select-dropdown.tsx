@@ -38,7 +38,7 @@ export const SelectDropdown = (props: SelectDropdownProps) => {
       }}
     >
       <div className={b(null, className)} style={position} ref={mergeRefs(dropdownRef, ref)} {...rest}>
-        <div className={b('optionList')}>{children}</div>
+        <ul className={b('optionList')}>{children}</ul>
       </div>
     </CSSTransition>
   )
