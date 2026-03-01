@@ -11,7 +11,7 @@ export type ButtonColor = 'brand' | 'success' | 'warning' | 'danger'
 
 export type ButtonShape = 'round' | 'brick' | 'roundBrick' | 'brickRound'
 
-export type ButtonSize = 'xs' | 's' | 'm' | 'l'
+export type ButtonSize = 's' | 'm' | 'l'
 
 export type ButtonProps = ComponentPropsWithRef<'button'> & {
   variant?: ButtonVariant
@@ -21,13 +21,13 @@ export type ButtonProps = ComponentPropsWithRef<'button'> & {
   startIcon?: ReactNode
   endIcon?: ReactNode
   fullWidth?: boolean
+  compact?: boolean
   loading?: boolean
 }
 
 const b = block('button')
 
 const spinnerSizes: Record<ButtonSize, SpinnerSize> = {
-  xs: 'xs',
   s: 'xs',
   m: 's',
   l: 'm',
@@ -42,6 +42,7 @@ export const Button = (props: ButtonProps) => {
     startIcon,
     endIcon,
     fullWidth,
+    compact,
     loading,
     disabled,
     children,
@@ -56,6 +57,7 @@ export const Button = (props: ButtonProps) => {
       shape,
       size,
       fullWidth,
+      compact,
       loading,
     },
     className,

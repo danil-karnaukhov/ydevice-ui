@@ -32,6 +32,7 @@ const meta = {
     size: 'm',
     children: 'Кнопка',
     fullWidth: false,
+    compact: false,
     loading: false,
     disabled: false,
   },
@@ -102,16 +103,26 @@ Icons.argTypes = {
 }
 
 export const Sizes: StoryFn<typeof Button> = (args) => (
-  <div className='sb-row'>
-    <Button {...args} size='xs' />
-    <Button {...args} size='s' />
-    <Button {...args} size='m' />
-    <Button {...args} size='l' />
+  <div className='sb-column'>
+    <div className='sb-row'>
+      <Button {...args} size='s' />
+      <Button {...args} size='m' />
+      <Button {...args} size='l' />
+    </div>
+
+    <div className='sb-row'>
+      <Button {...args} size='s' compact />
+      <Button {...args} size='m' compact />
+      <Button {...args} size='l' compact />
+    </div>
   </div>
 )
 
 Sizes.argTypes = {
   size: {
+    table: { disable: true },
+  },
+  compact: {
     table: { disable: true },
   },
 }

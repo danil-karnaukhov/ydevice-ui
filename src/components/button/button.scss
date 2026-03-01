@@ -199,15 +199,6 @@ $block: '.#{variables.$ns}button';
   }
 
   &_size {
-    &_xs {
-      --yd-button-height: 24px;
-      --yd-button-padding: var(--yd-spacing-xs);
-      --yd-button-gap: var(--yd-spacing-3xs);
-      --yd-button-font-size: var(--yd-text-size-s);
-      --yd-button-icon-size: 20px;
-      --yd-button-icon-offset: -4px;
-    }
-
     &_s {
       --yd-button-height: 32px;
       --yd-button-padding: var(--yd-spacing-s);
@@ -215,6 +206,11 @@ $block: '.#{variables.$ns}button';
       --yd-button-font-size: var(--yd-text-size-s);
       --yd-button-icon-size: 20px;
       --yd-button-icon-offset: -4px;
+
+      &#{$block}_compact {
+        --yd-button-height: 24px;
+        --yd-button-padding: var(--yd-spacing-xs);
+      }
     }
 
     &_m {
@@ -224,6 +220,11 @@ $block: '.#{variables.$ns}button';
       --yd-button-font-size: var(--yd-text-size-m);
       --yd-button-icon-size: 24px;
       --yd-button-icon-offset: -5px;
+
+      &#{$block}_compact {
+        --yd-button-height: 28px;
+        --yd-button-padding: var(--yd-spacing-xs);
+      }
     }
 
     &_l {
@@ -233,6 +234,11 @@ $block: '.#{variables.$ns}button';
       --yd-button-font-size: var(--yd-text-size-l);
       --yd-button-icon-size: 28px;
       --yd-button-icon-offset: -9px;
+
+      &#{$block}_compact {
+        --yd-button-height: 32px;
+        --yd-button-padding: var(--yd-spacing-s);
+      }
     }
   }
 

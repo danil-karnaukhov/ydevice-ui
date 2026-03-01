@@ -45,6 +45,7 @@ const meta = {
     size: 'm',
     icon: <SettingsIcon />,
     fullWidth: false,
+    compact: false,
     loading: false,
     disabled: false,
   },
@@ -98,16 +99,26 @@ Shape.argTypes = {
 }
 
 export const Sizes: StoryFn<typeof IconButton> = (args) => (
-  <div className='sb-row'>
-    <IconButton {...args} size='xs' />
-    <IconButton {...args} size='s' />
-    <IconButton {...args} size='m' />
-    <IconButton {...args} size='l' />
+  <div className='sb-column'>
+    <div className='sb-row'>
+      <IconButton {...args} size='s' />
+      <IconButton {...args} size='m' />
+      <IconButton {...args} size='l' />
+    </div>
+
+    <div className='sb-row'>
+      <IconButton {...args} size='s' compact />
+      <IconButton {...args} size='m' compact />
+      <IconButton {...args} size='l' compact />
+    </div>
   </div>
 )
 
 Sizes.argTypes = {
   size: {
+    table: { disable: true },
+  },
+  compact: {
     table: { disable: true },
   },
 }
