@@ -50,8 +50,8 @@ $block: '.#{variables.$ns}selectInput';
   &_variant {
     &_outlined {
       --yd-select-input-color-bg: var(--yd-color-bg-base);
-      --yd-select-input-color-border: var(--yd-color-line-neutral);
-      --yd-select-input-color-border-hover: var(--yd-color-line-neutral-hover);
+      --yd-select-input-color-border: var(--yd-color-line-neutral-accent);
+      --yd-select-input-color-border-hover: var(--yd-color-line-neutral-accent-hover);
       --yd-select-input-color-border-focus: var(--yd-color-line-brand);
     }
   }

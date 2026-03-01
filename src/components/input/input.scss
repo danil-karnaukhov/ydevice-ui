@@ -55,8 +55,8 @@ $block: '.#{variables.$ns}input';
       --yd-input-color-bg: var(--yd-color-bg-base);
       --yd-input-color-bg-hover: var(--yd-color-bg-base);
       --yd-input-color-bg-focus: var(--yd-color-bg-base);
-      --yd-input-color-border: var(--yd-color-line-neutral);
-      --yd-input-color-border-hover: var(--yd-color-line-neutral-hover);
+      --yd-input-color-border: var(--yd-color-line-neutral-accent);
+      --yd-input-color-border-hover: var(--yd-color-line-neutral-accent-hover);
       --yd-input-color-border-focus: var(--yd-color-line-brand);
     }
   }

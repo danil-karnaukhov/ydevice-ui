@@ -38,7 +38,7 @@ $block: '.#{variables.$ns}checkbox';
     width: var(--yd-checkbox-size);
     height: var(--yd-checkbox-size);
     color: var(--yd-color-text-primary-inverted);
-    border: 1px solid var(--yd-color-line-neutral);
+    border: 1px solid var(--yd-color-line-neutral-accent);
     border-radius: var(--yd-border-radius-s);
     transition:
       background-color 0.2s ease,
@@ -64,7 +64,7 @@ $block: '.#{variables.$ns}checkbox';
   }
 
   &:hover &__indicator {
-    border-color: var(--yd-color-line-neutral-hover);
+    border-color: var(--yd-color-line-neutral-accent-hover);
   }
 
   &:has(input:checked) &__indicator,
