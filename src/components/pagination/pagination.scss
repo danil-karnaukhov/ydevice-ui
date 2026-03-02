@@ -30,6 +30,7 @@ $block: '.#{variables.$ns}pagination';
   &__next,
   &__previous,
   &__break {
+    flex-shrink: 0;
     width: var(--yd-pagination-item-size);
     height: var(--yd-pagination-item-size);
     overflow: hidden;
@@ -41,11 +42,11 @@ $block: '.#{variables.$ns}pagination';
       color 0.15s ease;
 
     &:hover {
-      background-color: var(--yd-color-bg-brand-light);
+      background-color: var(--yd-color-bg-base-hover);
     }
 
     &:has(a:focus-visible) {
-      outline: 3px solid var(--yd-color-outline-brand);
+      outline: 3px solid var(--yd-color-outline-neutral);
       outline-offset: 2px;
     }
 
