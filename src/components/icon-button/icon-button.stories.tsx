@@ -19,7 +19,7 @@ const meta = {
     },
     color: {
       control: { type: 'radio' },
-      options: ['brand', 'success', 'warning', 'danger'],
+      options: ['neutral', 'brand', 'success', 'warning', 'danger'],
     },
     shape: {
       control: { type: 'radio' },
@@ -70,6 +70,7 @@ Variants.argTypes = {
 
 export const Colors: StoryFn<typeof IconButton> = (args) => (
   <div className='sb-row'>
+    <IconButton {...args} color='neutral' />
     <IconButton {...args} color='brand' />
     <IconButton {...args} color='success' />
     <IconButton {...args} color='warning' />

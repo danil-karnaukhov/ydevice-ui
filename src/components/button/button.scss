@@ -48,6 +48,13 @@ $block: '.#{variables.$ns}button';
     --yd-button-color-border: transparent;
     --yd-button-color-border-disabled: transparent;
 
+    &#{$block}_color_neutral {
+      --yd-button-color-text: var(--yd-color-text-primary);
+      --yd-button-color-text-hover: var(--yd-color-text-primary);
+      --yd-button-color-bg: var(--yd-color-bg-neutral);
+      --yd-button-color-bg-hover: var(--yd-color-bg-neutral-hover);
+    }
+
     &#{$block}_color_brand {
       --yd-button-color-bg: var(--yd-color-bg-brand);
       --yd-button-color-bg-hover: var(--yd-color-bg-brand-hover);
@@ -73,6 +80,13 @@ $block: '.#{variables.$ns}button';
     --yd-button-color-bg: transparent;
     --yd-button-color-bg-disabled: transparent;
     --yd-button-color-border-disabled: var(--yd-color-text-disabled);
+
+    &#{$block}_color_neutral {
+      --yd-button-color-text: var(--yd-color-text-primary);
+      --yd-button-color-text-hover: var(--yd-color-text-primary);
+      --yd-button-color-bg-hover: var(--yd-color-bg-base-hover);
+      --yd-button-color-border: var(--yd-color-line-neutral-accent);
+    }
 
     &#{$block}_color_brand {
       --yd-button-color-text: var(--yd-color-text-brand);
@@ -109,6 +123,12 @@ $block: '.#{variables.$ns}button';
     --yd-button-color-border: transparent;
     --yd-button-color-border-disabled: transparent;
 
+    &#{$block}_color_neutral {
+      --yd-button-color-text: var(--yd-color-text-primary);
+      --yd-button-color-text-hover: var(--yd-color-text-primary);
+      --yd-button-color-bg-hover: var(--yd-color-bg-base-hover);
+    }
+
     &#{$block}_color_brand {
       --yd-button-color-text: var(--yd-color-text-brand);
       --yd-button-color-text-hover: var(--yd-color-text-brand);
@@ -141,6 +161,16 @@ $block: '.#{variables.$ns}button';
     --yd-button-color-border: transparent;
     --yd-button-color-border-disabled: transparent;
 
+    &#{$block}_color_neutral {
+      --yd-button-color-text: var(--yd-color-text-primary);
+      --yd-button-color-text-hover: var(--yd-color-text-primary);
+      --yd-button-icon-color-hover: var(--yd-color-icon-hover);
+
+      &:not(:disabled):hover #{$block}__label {
+        opacity: 0.65;
+      }
+    }
+
     &#{$block}_color_brand {
       --yd-button-color-text: var(--yd-color-text-brand);
       --yd-button-color-text-hover: var(--yd-color-text-brand-hover);
@@ -163,6 +193,19 @@ $block: '.#{variables.$ns}button';
   }
 
   &_color {
+    &_neutral {
+      --yd-button-icon-color: var(--yd-color-icon);
+
+      &:not(:disabled) #{$block}__label {
+        opacity: 0.85;
+        transition: opacity 0.2s ease;
+      }
+
+      #{$block}__spinner {
+        color: var(--yd-color-icon);
+      }
+    }
+
     &_brand {
       --yd-button-color-outline-focus: var(--yd-color-outline-brand);
     }
@@ -268,6 +311,15 @@ $block: '.#{variables.$ns}button';
       width: var(--yd-button-icon-size);
       height: var(--yd-button-icon-size);
     }
+  }
+
+  &:not(:disabled) :is(&__startIcon, &__endIcon) > svg {
+    color: var(--yd-button-icon-color, currentcolor);
+    transition: color 0.2s ease;
+  }
+
+  &:not(:disabled):hover :is(&__startIcon, &__endIcon) > svg {
+    color: var(--yd-button-icon-color-hover, var(--yd-button-icon-color, currentcolor));
   }
 
   &__startIcon {

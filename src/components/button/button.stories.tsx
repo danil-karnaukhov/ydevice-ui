@@ -57,6 +57,7 @@ Variants.argTypes = {
 
 export const Colors: StoryFn<typeof Button> = (args) => (
   <div className='sb-row'>
+    <Button {...args} color='neutral' />
     <Button {...args} color='brand' />
     <Button {...args} color='success' />
     <Button {...args} color='warning' />

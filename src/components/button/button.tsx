@@ -7,7 +7,7 @@ import './button.scss'
 
 export type ButtonVariant = 'filled' | 'outlined' | 'ghost' | 'text'
 
-export type ButtonColor = 'brand' | 'success' | 'warning' | 'danger'
+export type ButtonColor = 'neutral' | 'brand' | 'success' | 'warning' | 'danger'
 
 export type ButtonShape = 'round' | 'brick' | 'roundBrick' | 'brickRound'
 
@@ -71,7 +71,7 @@ export const Button = (props: ButtonProps) => {
 
       {endIcon && <span className={b('endIcon')}>{endIcon}</span>}
 
-      {loading && <Spinner color='inherit' size={spinnerSizes[size]} centered />}
+      {loading && <Spinner className={b('spinner')} color='inherit' size={spinnerSizes[size]} centered />}
     </button>
   )
 }
