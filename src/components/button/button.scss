@@ -195,6 +195,7 @@ $block: '.#{variables.$ns}button';
   &_color {
     &_neutral {
       --yd-button-icon-color: var(--yd-color-icon);
+      --yd-button-color-outline-focus: var(--yd-color-outline-neutral);
 
       &:not(:disabled) #{$block}__label {
         opacity: 0.85;
