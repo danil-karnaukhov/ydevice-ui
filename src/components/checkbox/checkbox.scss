@@ -31,10 +31,8 @@ $block: '.#{variables.$ns}checkbox';
 
   &__indicator {
     position: relative;
-    display: inline-flex;
+    display: inline-block;
     flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
     width: var(--yd-checkbox-size);
     height: var(--yd-checkbox-size);
     color: var(--yd-color-text-primary-inverted);
@@ -47,6 +45,7 @@ $block: '.#{variables.$ns}checkbox';
     input {
       position: absolute;
       inset: -1px;
+      z-index: 2;
       appearance: none;
       cursor: inherit;
       border-radius: inherit;
@@ -54,9 +53,20 @@ $block: '.#{variables.$ns}checkbox';
     }
 
     svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 1;
       width: calc(var(--yd-checkbox-size) - 2px);
       height: calc(var(--yd-checkbox-size) - 2px);
+      transform: translate(-50%, -50%);
     }
+  }
+
+  &__checkIcon {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s ease;
   }
 
   &__label {
@@ -71,6 +81,11 @@ $block: '.#{variables.$ns}checkbox';
   &:has(input:indeterminate) &__indicator {
     background-color: var(--yd-color-bg-brand);
     border-color: transparent;
+  }
+
+  &:has(input:checked) &__checkIcon {
+    visibility: visible;
+    opacity: 1;
   }
 
   &:has(input:indeterminate) &__indicator::before {

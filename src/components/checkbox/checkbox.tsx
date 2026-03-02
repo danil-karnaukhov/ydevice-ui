@@ -21,7 +21,7 @@ export type CheckboxProps = Omit<ComponentPropsWithRef<'input'>, 'type' | 'size'
 const b = block('checkbox')
 
 export const Checkbox = (props: CheckboxProps) => {
-  const { size = 'm', label, rootRef, ref, className, indeterminate, checked, onChange, ...rest } = props
+  const { size = 'm', label, rootRef, ref, className, indeterminate, onChange, ...rest } = props
 
   const classes = b({ size }, className)
 
@@ -40,8 +40,8 @@ export const Checkbox = (props: CheckboxProps) => {
   return (
     <label className={classes} ref={rootRef}>
       <span className={b('indicator')}>
-        <input ref={mergeRefs(ref, inputRef)} type='checkbox' checked={checked} onChange={handleChange} {...rest} />
-        {checked && <CheckIcon />}
+        <input ref={mergeRefs(ref, inputRef)} type='checkbox' onChange={handleChange} {...rest} />
+        <CheckIcon className={b('checkIcon')} />
       </span>
 
       {label && <span className={b('label')}>{label}</span>}
