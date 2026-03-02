@@ -55,7 +55,7 @@ const css = () => {
 }
 
 const copyFonts = () => {
-  return src('./src/fonts/*.{otf,ttf,woff,woff2}')
+  return src('./src/fonts/*.{otf,ttf,woff,woff2}', { encoding: false })
     .pipe(plumber())
     .pipe(dest(`${BUILD_DIR}/fonts`))
 }
