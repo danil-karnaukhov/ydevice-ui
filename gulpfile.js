@@ -60,6 +60,10 @@ const copyFonts = () => {
     .pipe(dest(`${BUILD_DIR}/fonts`))
 }
 
+const copyReadme = () => {
+  return src('./README.md').pipe(plumber()).pipe(dest(BUILD_DIR))
+}
+
 const preparePackageJson = (done) => {
   const packageJson = JSON.parse(fs.readFileSync('package.json'))
   const fieldsToDelete = ['scripts', 'devDependencies']
@@ -75,5 +79,5 @@ export const build = series(
   removeBuildDir,
   parallel(js, declarations),
   replaceScssImports,
-  parallel(css, copyFonts, preparePackageJson),
+  parallel(css, copyFonts, copyReadme, preparePackageJson),
 )
