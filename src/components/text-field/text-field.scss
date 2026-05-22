@@ -1,0 +1,29 @@
+@use '../variables';
+
+$block: '.#{variables.$ns}text-field';
+
+#{$block} {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  &__label {
+    display: inline-flex;
+    gap: var(--yd-spacing-3xs);
+    margin-bottom: var(--yd-spacing-xs);
+    font-size: var(--yd-text-size-m);
+    font-weight: 500;
+    line-height: var(--yd-text-line-height-m);
+  }
+
+  &__asterisk {
+    color: var(--yd-color-text-danger);
+  }
+
+  &__errorMessage {
+    margin-top: var(--yd-spacing-3xs);
+    font-size: var(--yd-text-size-m);
+    line-height: var(--yd-text-line-height-m);
+    color: var(--yd-color-text-danger);
+  }
+}
