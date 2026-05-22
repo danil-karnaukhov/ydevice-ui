@@ -1,0 +1,68 @@
+@use '../variables';
+
+$block: '.#{variables.$ns}chip';
+
+#{$block} {
+  --yd-chip-height: 36px;
+
+  display: inline-block;
+  height: var(--yd-chip-height);
+  padding: 0 var(--yd-spacing-s);
+  font-size: var(--yd-text-size-m);
+  line-height: var(--yd-chip-height);
+  color: var(--yd-chip-color-text);
+  background-color: var(--yd-chip-color-bg);
+  border-color: var(--yd-chip-color-border);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: var(--yd-border-radius-m);
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+
+  &:hover:not(&_active, :disabled) {
+    background-color: var(--yd-chip-color-bg-hover);
+    border-color: var(--yd-chip-color-border-hover);
+  }
+
+  &_active {
+    color: var(--yd-chip-color-text-active);
+    background-color: var(--yd-chip-color-bg-active);
+    border-color: var(--yd-chip-color-border-active);
+  }
+
+  &:disabled {
+    color: var(--yd-color-text-disabled);
+    cursor: not-allowed;
+    background-color: var(--yd-chip-color-bg-disabled);
+    border-color: var(--yd-chip-color-border-disabled);
+  }
+
+  &_variant {
+    &_filled {
+      --yd-chip-color-bg: var(--yd-color-bg-neutral);
+      --yd-chip-color-bg-hover: var(--yd-color-bg-neutral-hover);
+      --yd-chip-color-bg-active: var(--yd-color-bg-brand);
+      --yd-chip-color-bg-disabled: var(--yd-color-bg-disabled);
+      --yd-chip-color-border: transparent;
+      --yd-chip-color-border-hover: transparent;
+      --yd-chip-color-border-active: transparent;
+      --yd-chip-color-border-disabled: transparent;
+      --yd-chip-color-text: var(--yd-color-text-secondary);
+      --yd-chip-color-text-active: var(--yd-color-text-primary-inverted);
+    }
+
+    &_outlined {
+      --yd-chip-color-bg: transparent;
+      --yd-chip-color-bg-hover: transparent;
+      --yd-chip-color-bg-active: transparent;
+      --yd-chip-color-bg-disabled: transparent;
+      --yd-chip-color-border: var(--yd-color-line-neutral-accent);
+      --yd-chip-color-border-hover: var(--yd-color-line-neutral-accent-hover);
+      --yd-chip-color-border-active: var(--yd-color-line-brand);
+      --yd-chip-color-border-disabled: var(--yd-color-line-neutral);
+      --yd-chip-color-text: var(--yd-color-text-secondary);
+      --yd-chip-color-text-active: var(--yd-color-text-brand);
+    }
+  }
+}
