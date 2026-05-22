@@ -1,3 +1,4 @@
+export * from './components/badge/badge'
 export * from './components/breadcrumbs/breadcrumbs'
 export * from './components/button/button'
 export * from './components/checkbox/checkbox'

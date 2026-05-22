@@ -1,0 +1,69 @@
+@use '../variables';
+
+$block: '.#{variables.$ns}badge';
+
+#{$block} {
+  display: inline-block;
+  height: var(--yd-badge-height);
+  padding: 0 var(--yd-badge-padding);
+  font-size: var(--yd-badge-text-size);
+  font-weight: 500;
+  line-height: var(--yd-badge-height);
+  color: var(--yd-color-text-primary-inverted);
+  background-color: var(--yd-badge-color-bg);
+  border-radius: var(--yd-border-radius-s);
+
+  &_size {
+    &_s {
+      --yd-badge-height: 24px;
+      --yd-badge-padding: var(--yd-spacing-xs);
+      --yd-badge-text-size: var(--yd-text-size-s);
+    }
+
+    &_m {
+      --yd-badge-height: 28px;
+      --yd-badge-padding: var(--yd-spacing-xs);
+      --yd-badge-text-size: var(--yd-text-size-s);
+    }
+
+    &_l {
+      --yd-badge-height: 32px;
+      --yd-badge-padding: var(--yd-spacing-s);
+      --yd-badge-text-size: var(--yd-text-size-m);
+    }
+  }
+
+  &_color {
+    &_brand {
+      --yd-badge-color-bg: var(--yd-color-bg-brand);
+    }
+
+    &_blue {
+      --yd-badge-color-bg: var(--yd-color-blue-400);
+    }
+
+    &_indigo {
+      --yd-badge-color-bg: var(--yd-color-indigo-400);
+    }
+
+    &_red {
+      --yd-badge-color-bg: var(--yd-color-red-400);
+    }
+
+    &_pink {
+      --yd-badge-color-bg: var(--yd-color-pink-400);
+    }
+
+    &_orange {
+      --yd-badge-color-bg: var(--yd-color-orange-400);
+    }
+
+    &_green {
+      --yd-badge-color-bg: var(--yd-color-green-400);
+    }
+
+    &_gray {
+      --yd-badge-color-bg: var(--yd-color-gray-400);
+    }
+  }
+}
