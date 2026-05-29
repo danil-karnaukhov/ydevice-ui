@@ -1,0 +1,93 @@
+@use '../../variables';
+
+$block: '.#{variables.$ns}snackbarItem';
+
+#{$block} {
+  display: flex;
+  gap: var(--yd-spacing-xs);
+  align-items: flex-start;
+  width: 400px;
+  padding: var(--yd-spacing-m);
+  background-color: var(--yd-snackbar-item-color-bg);
+  border-radius: var(--yd-border-radius-m);
+
+  &_variant_filled {
+    --yd-snackbar-item-color-text: var(--yd-color-text-primary-inverted);
+    --yd-snackbar-item-color-text-description: var(--yd-color-text-primary-inverted);
+
+    &#{$block}_status_info {
+      --yd-snackbar-item-color-bg: var(--yd-color-bg-info);
+    }
+
+    &#{$block}_status_success {
+      --yd-snackbar-item-color-bg: var(--yd-color-bg-success);
+    }
+
+    &#{$block}_status_warning {
+      --yd-snackbar-item-color-bg: var(--yd-color-bg-warning);
+    }
+
+    &#{$block}_status_error {
+      --yd-snackbar-item-color-bg: var(--yd-color-bg-danger);
+    }
+  }
+
+  &_variant_light {
+    --yd-snackbar-item-color-text-description: var(--yd-color-text-primary);
+
+    &#{$block}_status_info {
+      --yd-snackbar-item-color-bg: var(--yd-color-bg-info-light);
+      --yd-snackbar-item-color-text: var(--yd-color-text-info);
+    }
+
+    &#{$block}_status_success {
+      --yd-snackbar-item-color-bg: var(--yd-color-green-50);
+      --yd-snackbar-item-color-text: var(--yd-color-text-success);
+    }
+
+    &#{$block}_status_warning {
+      --yd-snackbar-item-color-bg: var(--yd-color-orange-50);
+      --yd-snackbar-item-color-text: var(--yd-color-text-warning);
+    }
+
+    &#{$block}_status_error {
+      --yd-snackbar-item-color-bg: var(--yd-color-red-50);
+      --yd-snackbar-item-color-text: var(--yd-color-text-danger);
+    }
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    color: var(--yd-snackbar-item-color-text);
+  }
+
+  &__body {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    gap: var(--yd-spacing-2xs);
+  }
+
+  &__title {
+    font-size: var(--yd-text-size-m);
+    font-weight: 500;
+    line-height: var(--yd-text-line-height-m);
+    color: var(--yd-snackbar-item-color-text);
+  }
+
+  &__description {
+    font-size: var(--yd-text-size-s);
+    line-height: var(--yd-text-line-height-m);
+    color: var(--yd-snackbar-item-color-text-description);
+  }
+
+  &__closeButton {
+    flex-shrink: 0;
+
+    svg {
+      color: var(--yd-snackbar-item-color-text) !important;
+    }
+  }
+}
