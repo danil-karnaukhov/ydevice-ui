@@ -9,6 +9,7 @@ $block: '.#{variables.$ns}input';
   align-items: center;
   width: 100%;
   height: var(--yd-input-height);
+  overflow: hidden;
   cursor: text;
   background-color: var(--yd-input-color-bg);
   border: 1px solid var(--yd-input-color-border);
@@ -147,6 +148,14 @@ $block: '.#{variables.$ns}input';
     &[type='number']::-webkit-outer-spin-button {
       margin: 0;
       appearance: none;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      box-shadow: 0 0 0 30px var(--yd-input-color-bg) inset !important;
+      -webkit-text-fill-color: var(--yd-color-text-primary) !important;
     }
   }
 
