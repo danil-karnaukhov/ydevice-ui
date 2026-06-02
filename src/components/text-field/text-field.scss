@@ -3,6 +3,7 @@
 $block: '.#{variables.$ns}text-field';
 
 #{$block} {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -21,9 +22,11 @@ $block: '.#{variables.$ns}text-field';
   }
 
   &__errorMessage {
-    margin-top: var(--yd-spacing-3xs);
-    font-size: var(--yd-text-size-m);
-    line-height: var(--yd-text-line-height-m);
+    position: absolute;
+    top: calc(100% + var(--yd-spacing-2xs));
+    left: 0;
+    font-size: var(--yd-text-size-s);
+    line-height: var(--yd-text-line-height-xs);
     color: var(--yd-color-text-danger);
   }
 }
