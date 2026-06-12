@@ -1,6 +1,6 @@
 'use client'
 
-import { createRef, type ReactNode, useState } from 'react'
+import { createRef, type ReactNode, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 
@@ -27,15 +27,18 @@ const b = block('snackbarContainer')
 export const SnackbarContainer = (props: SnackbarContainerProps) => {
   const { items, itemsVariant, onClose } = props
 
-  const [portalContainer] = useState(() => {
-    return typeof window !== 'undefined' ? document.body : null
-  })
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setIsClient(true)
+  }, [])
 
   const itemRefs = Array(items.length)
     .fill(null)
     .map(() => createRef<HTMLDivElement>())
 
-  if (!portalContainer) return null
+  if (!isClient) return null
 
   return createPortal(
     <TransitionGroup className={b()} component='div'>
@@ -52,6 +55,6 @@ export const SnackbarContainer = (props: SnackbarContainerProps) => {
         </CSSTransition>
       ))}
     </TransitionGroup>,
-    portalContainer,
+    document.body,
   )
 }
