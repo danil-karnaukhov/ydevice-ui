@@ -1,0 +1,90 @@
+@use '../variables';
+
+$block: '.#{variables.$ns}informer';
+
+#{$block} {
+  display: flex;
+  gap: var(--yd-spacing-xs);
+  align-items: flex-start;
+  width: 100%;
+  padding: var(--yd-spacing-m);
+  background-color: var(--yd-informer-color-bg);
+  border: 1px solid var(--yd-informer-color-border);
+  border-radius: var(--yd-border-radius-m);
+
+  &_variant_filled {
+    --yd-informer-color-text: var(--yd-color-text-primary-inverted);
+    --yd-informer-color-icon: var(--yd-color-text-primary-inverted);
+    --yd-informer-color-border: transparent;
+
+    &#{$block}_status_info {
+      --yd-informer-color-bg: var(--yd-color-bg-info);
+    }
+
+    &#{$block}_status_success {
+      --yd-informer-color-bg: var(--yd-color-bg-success);
+    }
+
+    &#{$block}_status_warning {
+      --yd-informer-color-bg: var(--yd-color-bg-warning);
+    }
+
+    &#{$block}_status_error {
+      --yd-informer-color-bg: var(--yd-color-bg-danger);
+    }
+  }
+
+  &_variant_outlined {
+    --yd-informer-color-text-text: var(--yd-color-text-primary);
+
+    &#{$block}_status_info {
+      --yd-informer-color-bg: var(--yd-color-bg-info-light);
+      --yd-informer-color-icon: var(--yd-color-text-info);
+      --yd-informer-color-border: var(--yd-color-line-info);
+    }
+
+    &#{$block}_status_success {
+      --yd-informer-color-bg: var(--yd-color-green-50);
+      --yd-informer-color-icon: var(--yd-color-text-success);
+      --yd-informer-color-border: var(--yd-color-line-success);
+    }
+
+    &#{$block}_status_warning {
+      --yd-informer-color-bg: var(--yd-color-orange-50);
+      --yd-informer-color-icon: var(--yd-color-text-warning);
+      --yd-informer-color-border: var(--yd-color-line-warning);
+    }
+
+    &#{$block}_status_error {
+      --yd-informer-color-bg: var(--yd-color-red-25);
+      --yd-informer-color-icon: var(--yd-color-text-danger);
+      --yd-informer-color-border: var(--yd-color-line-danger);
+    }
+  }
+
+  & > svg {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    color: var(--yd-informer-color-icon);
+  }
+
+  &__body {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    gap: var(--yd-spacing-2xs);
+    color: var(--yd-informer-color-text);
+  }
+
+  &__title {
+    font-size: var(--yd-text-size-m);
+    font-weight: 600;
+    line-height: var(--yd-text-line-height-s);
+  }
+
+  &__description {
+    font-size: var(--yd-text-size-m);
+    line-height: var(--yd-text-line-height-s);
+  }
+}
